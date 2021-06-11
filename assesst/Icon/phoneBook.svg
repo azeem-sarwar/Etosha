@@ -1,0 +1,8 @@
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="smartphone">
+    <rect id="Rectangle_11" data-name="Rectangle 11" width="24" height="24" transform="translate(24) rotate(90)" fill="#444251" opacity="0"/>
+    <path id="Path_11" data-name="Path 11" d="M17,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Zm1,17a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1Z" fill="#444251"/>
+    <circle id="Ellipse_18" data-name="Ellipse 18" cx="1.5" cy="1.5" r="1.5" transform="translate(10.5 15)" fill="#444251"/>
+    <path id="Path_12" data-name="Path 12" d="M14.5,6h-5a1,1,0,0,0,0,2h5a1,1,0,0,0,0-2Z" fill="#444251"/>
+  </g>
+</svg>

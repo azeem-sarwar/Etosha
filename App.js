@@ -24,6 +24,10 @@ import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import * as eva from '@eva-design/eva';
 import SaplashScreen from './src/SaplashScreen'
 import Onboarding from './src/Onboarding/Onboarding'
+import {NavigationContainer} from '@react-navigation/native'
+import RootStackNavigation from './src/Navigation/RootStackNavigation';
+import { default as theme } from './theme.json'; 
+import Test from './src/testScree';
 /**
  * Use any valid `name` property from eva icons (e.g `github`, or `heart-outline`)
  * https://akveo.github.io/eva-icons
@@ -42,7 +46,7 @@ export default () => {
     return(
       <>
       <IconRegistry icons={EvaIconsPack}/>
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <ApplicationProvider {...eva} theme={{...theme}}>
         <SaplashScreen />
       </ApplicationProvider>
     </>
@@ -51,9 +55,12 @@ export default () => {
   return(
   <>
     <IconRegistry icons={EvaIconsPack}/>
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <Onboarding />
-    </ApplicationProvider>
+    <ApplicationProvider {...eva} theme={{...eva.light}}>
+    <NavigationContainer>
+    <RootStackNavigation />
+    {/* <Test /> */}
+    </NavigationContainer>
+     </ApplicationProvider>
   </>
 )};
 
