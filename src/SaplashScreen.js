@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,ImageBackground,Dimensions } from 'react-native';
 import {
   ApplicationProvider,
   Button,
@@ -23,7 +23,8 @@ import Pizza from './../assesst/Svg/Pizza.svg'
 import { BlurView } from "@react-native-community/blur";
 import { heightToDp, widthToDp } from '../Utils/Responsive';
 
-
+const height = Dimensions.get('screen').height;
+const width = Dimensions.get('screen').width;
 
 
 const HeartIcon = (props) => (
@@ -32,8 +33,7 @@ const HeartIcon = (props) => (
 export default function SaplashScreen() {
     return (
         <Layout style={styles.container}>
-       
-          
+         
         <Layout style={{flex:1}} >
         <TopLefthand width={widthToDp(50)} height={heightToDp(25)} style={styles.TopLeftHand} />
         <TopRightHand width={widthToDp(25)} height={heightToDp(25)} style={styles.TopRightHand} />

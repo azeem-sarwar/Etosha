@@ -69,7 +69,8 @@ export default function Home({navigation}) {
 
   const renderCat = ({item}) => {
     return (
-      <View
+      <TouchableOpacity
+      onPress={()=>navigation.navigate("FoodCategory",{CategoryName:item.CatName})}
         style={styles.CatContainer}>
         <View
           style={styles.CatImgsec}>
@@ -79,7 +80,7 @@ export default function Home({navigation}) {
           />
           <Text style={{fontFamily: 'Poppins-Regular'}}>{item.CatName}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   const renderPopularFood = ({item}) => {
@@ -248,7 +249,7 @@ export default function Home({navigation}) {
         />
       </View>
 
-      {/* Popular foof section */}
+      {/* Popular food section */}
 
       <View
         style={{
@@ -271,7 +272,9 @@ export default function Home({navigation}) {
         renderItem={renderPopularFood}
         horizontal
       />
-        <View
+        
+      {/* Near By resturen */}
+      <View
         style={{
           flexDirection: 'row',
           marginHorizontal: 20,
@@ -285,8 +288,6 @@ export default function Home({navigation}) {
           </Text>
         </TouchableOpacity>
       </View>
-      {/* Near By resturen */}
-
       <View
         style={{
           height: 290, 

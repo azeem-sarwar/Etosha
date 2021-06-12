@@ -93,12 +93,9 @@
     "eslint.runtime": "",
     "ponicode.token": "64a81b8b-fcf2-4138-b08f-8aece9e33569",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },

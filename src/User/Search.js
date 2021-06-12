@@ -137,7 +137,29 @@ const [index,setIndex] =React.useState(1);
           />
         </View>
        
-      
+        <View
+          style={{
+              marginLeft: 10,  
+              backgroundColor:'#F24F04',
+              width:70,borderRadius:20,
+              alignSelf:'center',
+              marginTop:-10,
+              justifyContent:"center",alignItems:'center'
+            }}
+          >
+          <Text
+            style={{
+              marginLeft: 10,
+              fontFamily: 'Poppins-Regular',
+              fontSize: 15,
+              textAlign:'center',
+              color:'#fff'
+              
+              
+            }}>
+            $ {item.price}
+          </Text>
+          </View>
       <View>
         <Text style={{marginLeft: 10, marginVertical: 5,fontSize:20}} appearance="hint">
           Burger King
@@ -171,6 +193,7 @@ const [index,setIndex] =React.useState(1);
          <Card
          style={{borderRadius:20,
          marginHorizontal:20}}
+         onPress={()=>navigation.navigate("ResturentProfile")}
          >
          <Text category='h6'>McDonald's</Text>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -234,7 +257,9 @@ const [index,setIndex] =React.useState(1);
       <TouchableOpacity style={{marginLeft:10}}>
       <Search  />
       </TouchableOpacity>
-      <TouchableOpacity style={{marginLeft:10}}>
+      <TouchableOpacity style={{marginLeft:10}}
+      onPress={()=>navigation.navigate("Cart")}
+      >
 
       <Cart />
       <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>

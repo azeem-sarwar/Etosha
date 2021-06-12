@@ -7,6 +7,9 @@ import PopularFood from './PopularFood'
 import SearchScreen from './Search'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import FoodPage from './FoodPage'
+import ResturentProfile from './ResturentProfile'
+import FoodCategory from './FoordCategory'
+import Cart from './cart'
 
 export default function StackNavigationUser({ navigation, route }) {
     const Stack=createStackNavigator()
@@ -31,6 +34,12 @@ export default function StackNavigationUser({ navigation, route }) {
            <Stack.Screen name="popularFood" component={PopularFood} />
            <Stack.Screen name="Search" component={SearchScreen} />
            <Stack.Screen name="FoodPage" component={FoodPage} />
+           <Stack.Screen name="ResturentProfile" component={ResturentProfile} />
+           <Stack.Screen name="FoodCategory" component={FoodCategory} />
+           <Stack.Screen name="Cart" component={Cart} />
+
+
+
 
        </Stack.Navigator>
     )
