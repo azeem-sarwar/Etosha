@@ -1,16 +1,25 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import {createStackNavigator} from '@react-navigation/stack'
-import Home from './Home'
-import NeraByResturent from './NeraByResturent'
-import PopularFood from './PopularFood'
-import SearchScreen from './Search'
+import Home from '../Home'
+import NeraByResturent from '../NeraByResturent'
+import PopularFood from '../PopularFood'
+import SearchScreen from '../Search'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import FoodPage from './FoodPage'
-import ResturentProfile from './ResturentProfile'
-import FoodCategory from './FoordCategory'
-import Cart from './cart'
-
+import FoodPage from '../FoodPage'
+import ResturentProfile from '../ResturentProfile'
+import FoodCategory from '../DetailFoordCategory'
+import Cart from '../cart'
+import CheckOut from '../CheckOut'
+import MyCard from '../MyCard'
+import EditCard from '../EditCard'
+import FilterSearch from '../FilterSearch'
+import 'react-native-gesture-handler';
+import Profile from '../Profile'
+import EditProfile from '../EditProfile'
+import Categories from '../Categories'
+import MyOrder from '../MyOrder'
+import Review from '../Review'
 export default function StackNavigationUser({ navigation, route }) {
     const Stack=createStackNavigator()
 
@@ -37,7 +46,15 @@ export default function StackNavigationUser({ navigation, route }) {
            <Stack.Screen name="ResturentProfile" component={ResturentProfile} />
            <Stack.Screen name="FoodCategory" component={FoodCategory} />
            <Stack.Screen name="Cart" component={Cart} />
-
+           <Stack.Screen name="CheckOut" component={CheckOut} />
+           <Stack.Screen name="MyCard" component={MyCard} />
+           <Stack.Screen name="EditCard" component={EditCard} />
+           <Stack.Screen name="FilterSearch" component={FilterSearch} />
+           <Stack.Screen name="Profile" component={Profile} />
+           <Stack.Screen name="EditProfile" component={EditProfile} />
+           <Stack.Screen name="Categories" component={Categories} />
+           <Stack.Screen name="MyOrder" component={MyOrder} />
+           <Stack.Screen name="Review" component={Review} />
 
 
 

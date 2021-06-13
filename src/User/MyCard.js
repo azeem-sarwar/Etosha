@@ -18,84 +18,15 @@ import Search from '../../assesst/Icon/SearchBlack.svg';
 import CartIcon from './../../assesst/Icon/Cart.svg';
 import CrditCard from './../../assesst/Icon/CreditCard.svg'
 import Paypal from './../../assesst/Icon/PayPal.svg'
+import CardSVG from '../Component/Card';
 
 const width = Dimensions.get('screen').width;
 
-const data = [
-  {
-    id: '1',
-    title: 'Home',
-    Phone: '+00 555-555-1234',
-    Address: '52 Riverside St. Norcross, GA 30092',
-  },
-  {
-    id: '2',
-    title: 'Office',
-    Phone: '+00 555-555-1234',
-    Address: '52 Riverside St. Norcross, GA 30092',
-  },
-];
 
-export default function CheckOut({navigation, route}) {
+export default function MyCard({navigation, route}) {
   const [selectedIndex, setSelectedIndex] = React.useState(true);
 
-  const randerAddressCar = ({item}) => {
-    return (
-      <View
-        style={[
-          {
-            height: 160,
-            width: width - 100,
-            borderRadius: 30,
-            marginHorizontal: 20,
-            backgroundColor: '#fff',
-          },
-          styles.shadow,
-        ]}>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-            marginHorizontal: 20,
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <Radio>
-            <Text style={{marginLeft: 10, fontSize: 20}}>{item.title}</Text>
-          </Radio>
-          <Icon name="edit" size={20} color="#000" />
-        </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-            marginLeft: 50,
-            alignItems: 'center',
-          }}>
-          <Icon name="phone" size={15} color="gray" />
-          <Text style={{fontSize: 12, marginLeft: 10}} appearance="hint">
-            {item.Phone}
-          </Text>
-        </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-            marginLeft: 50,
-            alignItems: 'center',
-            flexShrink: 1,
-            width: 140,
-          }}>
-          <Icon name="map" size={15} color="gray" />
-          <Text style={{fontSize: 12, marginLeft: 10}} appearance="hint">
-            {item.Address}
-          </Text>
-        </View>
-      </View>
-    );
-  };
+ 
   const header = () => {
     return (
       <View>
@@ -122,7 +53,7 @@ export default function CheckOut({navigation, route}) {
               <Arrow />
             </TouchableOpacity>
             <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light'}}>
-              CheckOut
+              My Card
             </Text>
           </View>
           <View style={{flexDirection: 'row'}}>
@@ -158,20 +89,22 @@ export default function CheckOut({navigation, route}) {
       <StatusBar />
       {header()}
 
-      <View style={{width: 180, flexShrink: 1, margin: 20}}>
-        <Text style={{fontSize: 23}}>Order Will {'\n'}Be Delivered To</Text>
-      </View>
+      <View style={{ flexShrink: 1, margin: 20,flexDirection:'row'}}>
+        <Text style={{fontSize: 17}}>Edit card Information</Text>
+        
 
-      <View style={{height: 170}}>
-        <FlatList
-          data={data}
-          keyExtractor={item => item.id}
-          renderItem={randerAddressCar}
-          horizontal
-        />
+        <TouchableOpacity style={{marginLeft:20}}
+        onPress={()=>navigation.navigate("EditCard")}
+        >
+        <Icon name="edit" size={20} color="#000" />
+        </TouchableOpacity>
       </View>
+{/* pass the Card Information */}
+     <View style={[{marginHorizontal:10,height:250},styles.shadow]}>
+     <CardSVG Name="John Newton" amount={1990} cardNo={8881} />
+     </View>
 
-      <Text style={{fontSize: 18, marginLeft: 20, marginTop: 10}}>
+      <Text style={{fontSize: 18, marginLeft: 20, marginTop: -10}}>
         Payment Method
       </Text>
 
@@ -219,9 +152,9 @@ export default function CheckOut({navigation, route}) {
           },
           styles.shadow
           ]}
-          onPress={()=>navigation.navigate("MyCard")}
+          onPress={()=>navigation.navigate("MyOrder")}
           >
-          Check Out
+          Pay
         </Button>
       </View>
 
@@ -239,7 +172,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   shadow: {
-    shadowColor: '#000',
+    shadowColor: 'orange',
     shadowOffset: {
       width: 0,
       height: 8,

@@ -186,7 +186,9 @@ export default function Home({navigation}) {
               alignItems: 'center',
               borderWidth: 0.5,
               borderColor: '#D7D9DB',
-            }}>
+            }}
+            onPress={()=>navigation.openDrawer()}
+            >
             <Menue />
           </TouchableOpacity>
           <Text style={{marginLeft: 5, fontFamily: 'Poppins-Regular'}}>

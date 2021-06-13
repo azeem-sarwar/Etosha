@@ -9,8 +9,8 @@ import SignUp from '../Auth/SignUp'
 import EnterOTp from '../Auth/EnterOTp'
 import Forget from '../Auth/Forget'
 import ResetPassword from '../Auth/ResetPassword'
-import UserTabs from './../User/UserTabs'
-import DrawerNavigation from '../User/DrawerNavigation'
+import UserTabs from '../User/UserNavigation/UserTabs'
+import DrawerNavigation from '../User/UserNavigation/DrawerNavigation'
 
 export default function RootStackNavigation() {
     const Stack=createStackNavigator()
@@ -26,9 +26,6 @@ export default function RootStackNavigation() {
             <Stack.Screen name="forget" component={Forget} />
             <Stack.Screen name="ressetpass" component={ResetPassword} />
             <Stack.Screen name="UserTab" component={UserTabs} />
-
-
-
         </Stack.Navigator>
     )
 }

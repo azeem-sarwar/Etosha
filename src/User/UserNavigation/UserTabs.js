@@ -7,14 +7,14 @@ import {
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 import Svg, { Path } from 'react-native-svg';
 import { isIphoneX } from 'react-native-iphone-x-helper';
-
-import Home from "./Home"
-import StackNavigationUser from './StackNavigation'
+import 'react-native-gesture-handler';
+import Home from "../Home"
 import Icocion from 'react-native-vector-icons/Ionicons'
 import Octicons from 'react-native-vector-icons/Octicons'
 import Icon from 'react-native-vector-icons/Feather'
 import Foundation from 'react-native-vector-icons/Foundation'
-import StoreIcon from './../../assesst/Icon/Store.svg'
+import StoreIcon from './../../../assesst/Icon/Store.svg'
+import DrawerNavigation from './DrawerNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,15 +42,30 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
 const TabBarCustomButtonForNormaol = ({ accessibilityState, children, onPress }) => {
 
     var isSelected = accessibilityState.selected
-    console.log(accessibilityState);
 
    
         return (
-            <View style={{ flex: 1, alignItems: "center" }}>
-                <View style={{ flexDirection: 'row', position: 'absolute', top: 0 }}>
-                    <View style={{ flex: 1, backgroundColor: "#F7F9FC" }}></View>
+            <View style={{ flex: 1, alignItems: "center", }}>
+
+                  <TouchableOpacity
+                    style={{
+                        top: -22.5,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        width: 50,
+                        height: 50,
+                        borderRadius: 25,
+                        backgroundColor: "#F24F04",
+                        zIndex:10,
+                    }}
+                    onPress={onPress}
+                >
+                    {children}
+                </TouchableOpacity>
+                <View style={{  position: 'absolute', }}>
+                    
                     <Svg
-                        width={75}
+                        width={80}
                         height={61}
                         viewBox="0 0 75 61"
                     >
@@ -59,23 +74,10 @@ const TabBarCustomButtonForNormaol = ({ accessibilityState, children, onPress })
                             fill={"#ffffff"}
                         />
                     </Svg>
-                    <View style={{ flex: 1, backgroundColor: "#F7F9FC" }}></View>
+                    
                 </View>
 
-                <TouchableOpacity
-                    style={{
-                        top: -22.5,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: 50,
-                        height: 50,
-                        borderRadius: 25,
-                        backgroundColor: "#F24F04"
-                    }}
-                    onPress={onPress}
-                >
-                    {children}
-                </TouchableOpacity>
+                
             </View>
         )
     
@@ -125,13 +127,14 @@ const UserTabs = () => {
             right: 0,
             borderTopWidth: 0,
             backgroundColor: 'transparent',
-            elevation: 1,
+            elevation: 20,
           },
         }}
+        shifting="false"
         tabBar={props => <CustomTabBar props={props} />}>
         <Tab.Screen
           name="Home"
-          component={StackNavigationUser}
+          component={DrawerNavigation}
           options={{
             tabBarIcon: ({focused}) => (
               <Icon
@@ -164,11 +167,7 @@ const UserTabs = () => {
           component={Home}
           options={{
             tabBarIcon: ({focused}) => (
-                <StoreIcon
-              
-                
-                color={focused ? '#F24F04' : '#B2B6BB'}
-              />
+                <StoreIcon />
             ),
             tabBarButton: props => <TabBarCustomButtonForNormaol {...props} />,
           }}

@@ -56,7 +56,7 @@ export default function SignUp({navigation}) {
 
   const [password, setpassword] = React.useState('');
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
-  const [aviodingView, setAviodingView] = React.useState(false);
+
 
 
   const [emailRef, setEmailRef] = useFocus();
@@ -150,7 +150,7 @@ export default function SignUp({navigation}) {
                 value={name}
                 onChangeText={text => setName(text)}
                 style={{height: 35, width: widthToDp(65), paddingBottom: -5}}
-                placeholder="email here"
+                placeholder="Name"
               />
             </View>
           </View>

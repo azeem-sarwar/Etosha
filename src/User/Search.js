@@ -254,15 +254,17 @@ const [index,setIndex] =React.useState(1);
         </Text>
       </View>
       <View style={{flexDirection:'row'}}>
-      <TouchableOpacity style={{marginLeft:10}}>
-      <Search  />
+      <TouchableOpacity style={{marginLeft:10}} 
+      onPress={()=>navigation.navigate("FilterSearch")}
+      >
+      <Icon name="filter-outline" size={25} color="#000" />
       </TouchableOpacity>
       <TouchableOpacity style={{marginLeft:10}}
       onPress={()=>navigation.navigate("Cart")}
       >
 
       <Cart />
-      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
+      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5,color:'#fff'}}>5</Text>
       </TouchableOpacity>
       
       </View>
