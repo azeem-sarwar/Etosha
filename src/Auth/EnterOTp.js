@@ -153,7 +153,7 @@ export default function EnterOTp({navigation}) {
          
         </Layout>
 
-        <View style={{top:145}}>
+        {/* <View style={{top:145}}>
           <BottomRightHand
             width={widthToDp(70)}
             height={heightToDp(20)}
@@ -166,7 +166,7 @@ export default function EnterOTp({navigation}) {
           />
           <JuiceGlass style={styles.Juices} />
           <Burger style={styles.BurgerBottom} />
-        </View>
+        </View> */}
       </Layout>
     </Layout>
   );

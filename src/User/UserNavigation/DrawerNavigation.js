@@ -6,10 +6,25 @@ import StackNavigationUser from './HomeStackNavgation';
 import {DrawerContent} from '../DrawerContect';
 
 import 'react-native-gesture-handler';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+
+
+
 const height = Dimensions.get('screen').height;
 
-export default function DrawerNavigation() {
+export default function DrawerNavigation({navigation,route}) {
   const Drawer = createDrawerNavigator();
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    
+    
+    if (routeName === "Search" ){
+        console.log(routeName)
+        navigation.setOptions({tabBarVisible: false});
+    }else {
+        navigation.setOptions({tabBarVisible: true});
+    }
+}, [navigation, route]);
   return (
     <Drawer.Navigator
       drawerStyle={{

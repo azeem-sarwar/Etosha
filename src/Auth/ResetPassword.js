@@ -209,7 +209,7 @@ export default function ResetPassword({navigation}) {
          
         </Layout>
 
-        <View style={{top:120}}>
+        {/* <View style={{top:120}}>
           <BottomRightHand
             width={widthToDp(70)}
             height={heightToDp(20)}
@@ -222,7 +222,7 @@ export default function ResetPassword({navigation}) {
           />
           <JuiceGlass style={styles.Juices} />
           <Burger style={styles.BurgerBottom} />
-        </View>
+        </View> */}
       </Layout>
     </Layout>
   );

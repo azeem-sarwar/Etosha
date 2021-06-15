@@ -25,7 +25,7 @@ export const SIZES = {
     radius: 30,
     padding: 10,
     padding2: 12,
-    magin:20,
+    margin:{margin:20},
 
 
     // font sizes
@@ -56,16 +56,16 @@ export const fontsFamily={
 
 
 export const FONTS = {
-    largeTitle: { fontFamily: "Poppins-Light", fontSize: SIZES.largeTitle, lineHeight: 55 },
-    h1: { fontFamily: "Poppins-Bold", fontSize: SIZES.h1, lineHeight: 36 },
-    h2: { fontFamily: "Poppins-Light", fontSize: SIZES.h2, lineHeight: 30 },
-    h3: { fontFamily: "Poppins-Light", fontSize: SIZES.h3, lineHeight: 22 },
-    h4: { fontFamily: "Poppins-Light", fontSize: SIZES.h4, lineHeight: 22 },
-    body1: { fontFamily:"Poppins-Light" , fontSize: SIZES.body1, lineHeight: 36 },
-    body2: { fontFamily:"Poppins-Light" , fontSize: SIZES.body2, lineHeight: 30 },
-    body3: { fontFamily:"Poppins-Light" , fontSize: SIZES.body3, lineHeight: 22 },
-    body4: { fontFamily:"Poppins-Light" , fontSize: SIZES.body4, lineHeight: 22 },
-    body5: { fontFamily:"Poppins-Light" , fontSize: SIZES.body5, lineHeight: 22 },
+    largeTitle: { fontFamily: "Poppins-Light", fontSize: SIZES.largeTitle,  },
+    h1: { fontFamily: "Poppins-Bold", fontSize: SIZES.h1,},
+    h2: { fontFamily: "Poppins-Light", fontSize: SIZES.h2, },
+    h3: { fontFamily: "Poppins-Light", fontSize: SIZES.h3, },
+    h4: { fontFamily: "Poppins-Light", fontSize: SIZES.h4,  },
+    body1: { fontFamily:"Poppins-Light" , fontSize: SIZES.body1,  },
+    body2: { fontFamily:"Poppins-Light" , fontSize: SIZES.body2, },
+    body3: { fontFamily:"Poppins-Light" , fontSize: SIZES.body3,  },
+    body4: { fontFamily:"Poppins-Light" , fontSize: SIZES.body4,  },
+    body5: { fontFamily:"Poppins-Light" , fontSize: SIZES.body5, },
 };
 
 const appTheme = { COLORS, SIZES, FONTS,fontsFamily };

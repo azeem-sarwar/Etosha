@@ -23,8 +23,10 @@ export const basket = require("../assets/icons/shopping-basket.png");
 export const star = require("../assets/icons/star.png");
 export const sushi = require("../assets/icons/sushi.png");
 export const user = require("../assets/icons/user.png");
+export const BurgerKing = require('./../assesst/Burgerking.png');
 
 export default {
+    BurgerKing,
     back,
     car,
     cutlery,

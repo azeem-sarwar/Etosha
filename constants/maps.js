@@ -1,5 +1,5 @@
-const GOOGLE_API_KEY_andriod = "AIzaSyBemOjy8lTJVj5xyukW6e7eCTl3iTu-q00"
-const GOOGLE_API_KEY_ios = "AIzaSyBemOjy8lTJVj5xyukW6e7eCTl3iTu-q00"
+const GOOGLE_API_KEY_andriod = "AIzaSyAY--SiA8TFjtOnvoT0AnCL_aTaU3jV7SI"
+const GOOGLE_API_KEY_ios = "AIzaSyAY--SiA8TFjtOnvoT0AnCL_aTaU3jV7SI"
 
 
 export {GOOGLE_API_KEY_andriod,GOOGLE_API_KEY_ios}

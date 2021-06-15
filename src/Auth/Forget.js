@@ -171,7 +171,7 @@ export default function Forget({navigation}) {
           
          
         </Layout>
-
+{/* 
         <View style={{top:145}}>
           <BottomRightHand
             width={widthToDp(70)}
@@ -185,7 +185,7 @@ export default function Forget({navigation}) {
           />
           <JuiceGlass style={styles.Juices} />
           <Burger style={styles.BurgerBottom} />
-        </View>
+        </View> */}
       </Layout>
     </Layout>
   );

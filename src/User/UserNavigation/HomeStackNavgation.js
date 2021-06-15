@@ -20,14 +20,18 @@ import EditProfile from '../EditProfile'
 import Categories from '../Categories'
 import MyOrder from '../MyOrder'
 import Review from '../Review'
+import NearByFoodMap from '../NearByFoodMap'
+import TrackOrder from '../TrackOrder'
 export default function StackNavigationUser({ navigation, route }) {
     const Stack=createStackNavigator()
 
 
     // React.useLayoutEffect(() => {
     //     const routeName = getFocusedRouteNameFromRoute(route);
-    //     console.log(routeName)
-    //     if (routeName === "Search"){
+        
+        
+    //     if (routeName === "Search" ){
+    //         console.log(routeName)
     //         navigation.setOptions({tabBarVisible: false});
     //     }else {
     //         navigation.setOptions({tabBarVisible: true});
@@ -55,6 +59,10 @@ export default function StackNavigationUser({ navigation, route }) {
            <Stack.Screen name="Categories" component={Categories} />
            <Stack.Screen name="MyOrder" component={MyOrder} />
            <Stack.Screen name="Review" component={Review} />
+           <Stack.Screen name="FoodMap" component={NearByFoodMap} />
+           <Stack.Screen name="TrackFood" component={TrackOrder} />
+
+
 
 
 

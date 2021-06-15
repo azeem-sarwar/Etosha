@@ -220,7 +220,7 @@ export default function Login({navigation}) {
           </View>
         </Layout>
 
-        <View>
+        {/* <View>
           <BottomRightHand
             width={widthToDp(70)}
             height={heightToDp(20)}
@@ -233,7 +233,7 @@ export default function Login({navigation}) {
           />
           <JuiceGlass style={styles.Juices} />
           <Burger style={styles.BurgerBottom} />
-        </View>
+        </View> */}
       </Layout>
     </Layout>
   );

@@ -191,7 +191,9 @@ export default function ResturentProfile({navigation}) {
         <Arrow />
       </TouchableOpacity>
 
-      <Layout
+<TouchableOpacity onPress={()=>navigation.navigate("FoodMap")}>
+
+<Layout
         style={{
          
           borderRadius: 30,
@@ -276,7 +278,10 @@ export default function ResturentProfile({navigation}) {
           </View>
         </View>
       </Layout>
-      <View>
+   
+</TouchableOpacity>
+
+         <View>
         <FlatList
           data={CategoryData}
           

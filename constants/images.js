@@ -27,7 +27,7 @@ const salad = require("../assets/images/salad.jpg");
 const sarawak_laksa = require("../assets/images/sarawak-laksa.jpg");
 const sushi = require("../assets/images/sushi.jpg");
 const teh_c_peng = require("../assets/images/teh-c-peng.jpg");
-const tomato_pasta = require("../assets/images/tomato-pasta.jpg");
+const DeliveryBoy = require("../assets/images/deliverBoya.jpg");
 
 export default {
     avatar_1,
@@ -59,5 +59,5 @@ export default {
     sarawak_laksa,
     sushi,
     teh_c_peng,
-    tomato_pasta,
+    DeliveryBoy
 }
