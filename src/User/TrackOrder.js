@@ -154,7 +154,7 @@ const TrackOrder = ({ route, navigation }) => {
                         destination={toLocation}
                         apikey={GOOGLE_API_KEY_andriod}
                         strokeWidth={4}
-                        
+                        splitWaypoints={true}
                         strokeColor={COLORS.black}
                         optimizeWaypoints={true}
                         onReady={result => {

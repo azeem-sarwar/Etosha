@@ -300,7 +300,7 @@ const OnBoarding = ({navigation}) => {
                                
                             }}
                             onPress={() => { 
-                              navigation.replace("UserTab")
+                              navigation.replace("DrawerRider")
                              }}
                         >
                             <Text style={{...fontsFamily.Light,textAlign:'center',marginTop:10}}>Skip</Text>

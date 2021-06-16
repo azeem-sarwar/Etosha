@@ -11,6 +11,7 @@ import Forget from '../Auth/Forget'
 import ResetPassword from '../Auth/ResetPassword'
 import UserTabs from '../User/UserNavigation/UserTabs'
 import DrawerNavigation from '../User/UserNavigation/DrawerNavigation'
+import DrawerRider from '../Rider/Navigation/Drawer'
 
 export default function RootStackNavigation() {
     const Stack=createStackNavigator()
@@ -26,6 +27,8 @@ export default function RootStackNavigation() {
             <Stack.Screen name="forget" component={Forget} />
             <Stack.Screen name="ressetpass" component={ResetPassword} />
             <Stack.Screen name="UserTab" component={DrawerNavigation} />
+            <Stack.Screen name="DrawerRider" component={DrawerRider} />
+
         </Stack.Navigator>
     )
 }

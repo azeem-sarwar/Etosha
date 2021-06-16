@@ -259,13 +259,14 @@ let ScreenName= route.params.CategoryName;
        data={NearByReturent}
        keyExtractor={(item)=>item.id}
        renderItem={renderFoodList}
+       ListFooterComponent={()=>( <View style={{height: 40, width: '100%'}} />)}
        
      />
     
      
 
      
-    <View style={{height: 60, width: '100%'}} />
+   
         </Layout>
     )
 }

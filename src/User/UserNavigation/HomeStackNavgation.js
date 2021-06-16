@@ -98,13 +98,27 @@ export function ProfileStack({ navigation, route }) {
            <Stack.Screen name="Review" component={Review} />
            <Stack.Screen name="FoodMap" component={NearByFoodMap} />
            <Stack.Screen name="TrackFood" component={TrackOrder} />
-
-
-
-
-
-
        </Stack.Navigator>
     )
 }
 
+export function StoreStack({ navigation, route }) {
+    const Stack=createStackNavigator()
+
+    return (
+       <Stack.Navigator screenOptions={{
+        headerShown:false
+      }}>
+           <Stack.Screen name="Cart" component={Cart} />
+           <Stack.Screen name="Search" component={SearchScreen} />
+           <Stack.Screen name="CheckOut" component={CheckOut} />
+           <Stack.Screen name="MyCard" component={MyCard} />
+           <Stack.Screen name="EditCard" component={EditCard} />
+           <Stack.Screen name="FilterSearch" component={FilterSearch} />
+           <Stack.Screen name="MyOrder" component={MyOrder} />
+           <Stack.Screen name="Review" component={Review} />
+           <Stack.Screen name="FoodMap" component={NearByFoodMap} />
+           <Stack.Screen name="TrackFood" component={TrackOrder} />
+       </Stack.Navigator>
+    )
+}
