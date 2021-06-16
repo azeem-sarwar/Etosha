@@ -7,11 +7,11 @@ import {
     StyleSheet
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import MapViewDirections from "react-native-maps-directions";
-import Arrow from '../../assesst/Icon/arrowBack.svg'
-import Icon from 'react-native-vector-icons/Ionicons';
+import MapViewDirections from 'react-native-maps-directions';
 
-import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY_andriod, images,List } from "../../constants"
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY_andriod, images,List, fontsFamily } from "../../constants"
 import PinMarker from "../Component/Pin";
 
 
@@ -26,46 +26,21 @@ const restaurantdata= {
     photo: images.burger_restaurant_1,
     duration: "30 - 45 min",
     location: {
-        latitude: 1.5396614933250669,
-        longitude: 110.36381999919924,
+        latitude: 40.732497457467545,
+        longitude: -74.0054012540893
     },
     courier: {
         avatar: images.avatar_1,
         name: "Amy"
-    },
-    menu: [
-        {
-            menuId: 1,
-            name: "Crispy Chicken Burger",
-            photo: images.crispy_chicken_burger,
-            description: "Burger with crispy chicken, cheese and lettuce",
-            calories: 200,
-            price: 10
-        },
-        {
-            menuId: 2,
-            name: "Crispy Chicken Burger with Honey Mustard",
-            photo: images.honey_mustard_chicken_burger,
-            description: "Crispy Chicken Burger with Honey Mustard Coleslaw",
-            calories: 250,
-            price: 15
-        },
-        {
-            menuId: 3,
-            name: "Crispy Baked French Fries",
-            photo: images.baked_fries,
-            description: "Crispy Baked French Fries",
-            calories: 194,
-            price: 8
-        }
-    ]
+    }
 }
+
 
 const initialCurrentLocation = {
     streetName: "Kuching",
     gps: {
-        latitude: 1.5496614931250685,
-        longitude: 110.36381866919922
+        latitude: 40.732326728728864,
+        longitude: -74.00635612049858,
     }
 }
 
@@ -174,13 +149,13 @@ const TrackOrder = ({ route, navigation }) => {
                     style={{ flex: 1 }}
                     customMapStyle={mapStyle}
                 >
-                    {/* <MapViewDirections
+                    <MapViewDirections
                         origin={fromLocation}
                         destination={toLocation}
                         apikey={GOOGLE_API_KEY_andriod}
-                        strokeWidth={5}
+                        strokeWidth={4}
                         
-                        strokeColor={COLORS.primary}
+                        strokeColor={COLORS.black}
                         optimizeWaypoints={true}
                         onReady={result => {
                             setDuration(result.duration)
@@ -211,7 +186,7 @@ const TrackOrder = ({ route, navigation }) => {
                                 setIsReady(true)
                             }
                         }}
-                    /> */}
+                    /> 
                     {destinationMarker()}
                     {ResturentIcon()}
                 </MapView>
@@ -234,7 +209,7 @@ const TrackOrder = ({ route, navigation }) => {
         <TouchableOpacity
         style={styles.goBackBtn}
         onPress={() => navigation.goBack()}>
-        <Arrow /> 
+        <Icon  name="chevron-left" size={25} color={COLORS.black} />
       </TouchableOpacity>
       <Text style={{...FONTS.body2,marginLeft:10 ,top:20,marginLeft:20}}>Order Tracking</Text>
         </View>
@@ -265,7 +240,7 @@ const TrackOrder = ({ route, navigation }) => {
         }}>
         <View>
           <Image
-            source={require('../../assesst/Burgerking.png')}
+            source={images.DeliveryBoy}
             style={{
               height: 60,
               width: 60,
@@ -277,15 +252,15 @@ const TrackOrder = ({ route, navigation }) => {
         </View>
 
         <Text category="h4" style={{textAlign: 'center'}}>
-          Burger King
+        Manuel C. Smith
         </Text>
-        <Text style={{textAlign: 'center'}} appearance="hint">42 Riverside St.Norcross,{"\n"}GA 30092</Text>
+        <Text style={{textAlign: 'center',...FONTS.body5}} appearance="hint">Food Courier</Text>
         <View
           style={{
             position: 'absolute',
-            top: 10,
-            right: 10,
-            backgroundColor: '#F24F04',
+            top: 15,
+            right: 20,
+            backgroundColor: COLORS.primary,
             borderRadius: 50,
             height: 30,
             width: 30,
@@ -294,55 +269,36 @@ const TrackOrder = ({ route, navigation }) => {
           }}>
           <Icon
             onPress={() => alert('Book Mark icon is pressed')}
-            name="bookmark"
+            name="phone"
             size={25}
-            color="#fff"
+            color={COLORS.white}
           />
         </View>
 
         <View style={{marginHorizontal: 20}}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between',marginVertical:5}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 1}}
-            />
-            <Text appearance="hint" style={{marginLeft: 5}}>
-              4.6
-            </Text>
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+
+        <View style={{flexDirection:'row'}}>
+        <Icon name="map-marker" size={30} color={COLORS.primary} />
+        <View>
+            <Text style={{...FONTS.body4}} >9 Dunstan Road </Text>
+            <Text style={{...fontsFamily.Light,fontSize:10}} >Delivery address</Text>
+        </View>
+            </View>
+            <View style={{flexDirection:'row'}}>
             <Image
               source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
+              style={{height: 30, width: 30,marginRight:5}}
             />
-            <Text appearance="hint" style={{marginLeft: 5}}>
-              30 Min
-            </Text>
-            <Image
-              source={require('../../assesst/Icon/Cycle.png')}
-              style={{height: 20, width: 30, marginLeft: 10}}
-            />
-            <Text appearance="hint" style={{marginLeft: 5}}>
-              Free Delivery
-            </Text>
-          </View>
+            <View>
+            <Text style={{...FONTS.body4}} >20-25 min </Text>
+            <Text style={{...fontsFamily.Light,fontSize:10}} >Delivery time</Text>
+        </View>
+        </View>
+        </View>
 
-          <View style={{flexDirection: 'row',justifyContent:'center',width:SIZES.width}}>
-           
-      <Text  style={styles.tags}>
-        Burger
-      </Text>
-
-      <Text  style={styles.tags}>
-        Pizza
-      </Text>
-
-      <Text  style={styles.tags}>
-        Fast Food
-      </Text>
-       
-          </View>
-
-          <Button style={{marginTop:15,marginHorizontal:20,marginBottom:5,height:60,borderRadius:30}}>
-         <Text style={{...FONTS.h4,color:COLORS.white}}> More Detail</Text>
+          <Button style={{marginTop:15,marginHorizontal:20,marginBottom:15,height:60,borderRadius:30}}>
+         <Text style={{...FONTS.h4,color:COLORS.white}}>More Details</Text>
           </Button>
           
         </View>

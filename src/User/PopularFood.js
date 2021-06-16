@@ -213,7 +213,9 @@ export default function PopularFood({navigation}) {
       >
       <Search  />
       </TouchableOpacity>
-      <TouchableOpacity style={{marginLeft:10}}>
+      <TouchableOpacity style={{marginLeft:10}}
+      onPress={()=>navigation.navigate("Cart")}
+      >
 
       <Cart />
       <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>

@@ -17,7 +17,7 @@ import PinMarker from "../Component/Pin";
 
 
 
-const restaurantdata= {
+const restaurantdata= [{
     id: 1,
     name: "Burger",
     rating: 4.8,
@@ -26,46 +26,38 @@ const restaurantdata= {
     photo: images.burger_restaurant_1,
     duration: "30 - 45 min",
     location: {
-        latitude: 1.5396614933250669,
-        longitude: 110.36381999919924,
+        latitude: 40.732497457467545,
+        longitude: -74.0054012540893
     },
     courier: {
         avatar: images.avatar_1,
         name: "Amy"
+    }
+},
+{
+    id: 1,
+    name: "Burger",
+    rating: 4.8,
+    categories: [5, 7],
+    priceRating: 1,
+    photo: images.burger_restaurant_1,
+    duration: "30 - 45 min",
+    location: {
+        latitude: 40.73101779384514,
+        longitude: -74.00684428253929
     },
-    menu: [
-        {
-            menuId: 1,
-            name: "Crispy Chicken Burger",
-            photo: images.crispy_chicken_burger,
-            description: "Burger with crispy chicken, cheese and lettuce",
-            calories: 200,
-            price: 10
-        },
-        {
-            menuId: 2,
-            name: "Crispy Chicken Burger with Honey Mustard",
-            photo: images.honey_mustard_chicken_burger,
-            description: "Crispy Chicken Burger with Honey Mustard Coleslaw",
-            calories: 250,
-            price: 15
-        },
-        {
-            menuId: 3,
-            name: "Crispy Baked French Fries",
-            photo: images.baked_fries,
-            description: "Crispy Baked French Fries",
-            calories: 194,
-            price: 8
-        }
-    ]
-}
+    courier: {
+        avatar: images.avatar_1,
+        name: "Amy"
+    }
+},
+]
 
 const initialCurrentLocation = {
     streetName: "Kuching",
     gps: {
-        latitude: 1.5496614931250685,
-        longitude: 110.36381866919922
+        latitude: 40.732326728728864,
+        longitude: -74.00635612049858,
     }
 }
 
@@ -90,7 +82,7 @@ const NearByFoodMap = ({ route, navigation }) => {
        
 
         let fromLoc = initialCurrentLocation.gps
-        let toLoc = restaurantdata.location
+        let toLoc = restaurantdata[0].location
         let street = initialCurrentLocation.streetName
 
         let mapRegion = {
@@ -129,7 +121,7 @@ const NearByFoodMap = ({ route, navigation }) => {
      
         const destinationMarker = () => (
             <Marker
-                coordinate={toLocation}
+                coordinate={fromLocation}
             >
                 <View
                     style={styles.CustomMarkerContainer}
@@ -146,9 +138,10 @@ const NearByFoodMap = ({ route, navigation }) => {
             </Marker>
         )
 
-        const ResturentIcon = () => (
+        const ResturantIcon = (Resturant,index) => (
             <Marker
-                coordinate={fromLocation}
+            key={index}
+                coordinate={Resturant.location}
                 anchor={{ x: 0.5, y: 0.5 }}
                 flat={true}
                 rotation={angle}
@@ -174,46 +167,10 @@ const NearByFoodMap = ({ route, navigation }) => {
                     style={{ flex: 1 }}
                     customMapStyle={mapStyle}
                 >
-                    {/* <MapViewDirections
-                        origin={fromLocation}
-                        destination={toLocation}
-                        apikey={GOOGLE_API_KEY_andriod}
-                        strokeWidth={5}
-                        
-                        strokeColor={COLORS.primary}
-                        optimizeWaypoints={true}
-                        onReady={result => {
-                            setDuration(result.duration)
-
-                            if (!isReady) {
-                                // Fit route into maps
-                                mapView.current.fitToCoordinates(result.coordinates, {
-                                    edgePadding: {
-                                        right: (SIZES.width / 20),
-                                        bottom: (SIZES.height / 4),
-                                        left: (SIZES.width / 20),
-                                        top: (SIZES.height / 8)
-                                    }
-                                })
-
-                                // Reposition the car
-                                let nextLoc = {
-                                    latitude: result.coordinates[0]["latitude"],
-                                    longitude: result.coordinates[0]["longitude"]
-                                }
-
-                                if (result.coordinates.length >= 2) {
-                                    let angle = calculateAngle(result.coordinates)
-                                    setAngle(angle)
-                                }
-
-                                setFromLocation(nextLoc)
-                                setIsReady(true)
-                            }
-                        }}
-                    /> */}
+                    
                     {destinationMarker()}
-                    {ResturentIcon()}
+                    {restaurantdata.map((Resturant,index)=>ResturantIcon(Resturant,index))}
+
                 </MapView>
             </View>
         )

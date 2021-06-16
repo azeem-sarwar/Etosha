@@ -15,10 +15,10 @@ import {
   Layout
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
+import LeftArrow from 'react-native-vector-icons/Entypo';
 import Cart from './../../assesst/Icon/Cart.svg'
-const width = Dimensions.get('screen').width;
+import { COLORS, SIZES } from '../../constants';
+
 
 
 
@@ -69,21 +69,24 @@ export default function NeraByResturent({navigation}) {
 }
   const renderResturent=({item})=>{
     return(
-      <View
+      <TouchableOpacity
+
       style={{
         height: 290, 
-        width: width - 20,
+        width: SIZES.width - 20,
         marginTop:40,
         marginHorizontal:10,
         borderRadius: 30,
         backgroundColor: '#fff',
         bottom:60
        
-      }}>
+      }}
+      onPress={()=>navigation.navigate("ResturentProfile")}
+      >
       
         <Image
           source={require('./../../assesst/dish.jpg')}
-          style={{height: 200, width: width - 20, borderRadius: 30}}
+          style={{height: 200, width: SIZES.width - 20, borderRadius: 30}}
         />
         <View
           style={{
@@ -123,6 +126,7 @@ export default function NeraByResturent({navigation}) {
           <Image
             source={require('../../assesst/Icon/Star.png')}
             style={{height: 20, width: 20, marginLeft: 10}}
+            
           />
           <Text appearance="hint" style={{marginLeft: 5}}>
             4.6
@@ -149,7 +153,7 @@ export default function NeraByResturent({navigation}) {
            
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   
     )
   }
@@ -179,7 +183,7 @@ export default function NeraByResturent({navigation}) {
           }}
           onPress={()=>navigation.goBack()}
           >
-          <Arrow />
+         <LeftArrow  name="chevron-small-left" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={{marginLeft: 5,fontFamily:'Poppins-Light'}}>
           {' '}
@@ -190,12 +194,14 @@ export default function NeraByResturent({navigation}) {
       <TouchableOpacity style={{marginLeft:10}} 
       onPress={()=>navigation.navigate("Search")}
       >
-      <Search  />
+     <Icon name='search' size={25} color={COLORS.black} />
       </TouchableOpacity>
-      <TouchableOpacity style={{marginLeft:10}}>
+      <TouchableOpacity
+      onPress={()=>navigation.navigate("Cart")}
+       style={{marginLeft:10}}>
 
       <Cart />
-      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
+      <Text style={{fontSize:10,backgroundColor:COLORS.primary,color:COLORS.white,borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
       </TouchableOpacity>
       
       </View>

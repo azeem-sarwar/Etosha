@@ -29,6 +29,8 @@ import {heightToDp, widthToDp} from '../../Utils/Responsive';
 import {TextInput} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { fontsFamily } from '../../constants';
+
 const HeartIcon = props => <Icon {...props} name="heart" />;
 const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
 
@@ -101,10 +103,10 @@ export default function SignUp({navigation}) {
 
         <Layout
           style={{backgroundColor: '#F7F9FC', width: '100%', marginLeft: 20}}>
-          <Text status="basic" style={{fontSize: 20, marginVertical: 10}}>
+          <Text status="basic" style={{fontSize: 20, marginVertical: 10,...fontsFamily.Light}}>
             Sign Up
           </Text>
-          <Text appearance="hint" style={{marginTop: 5}}>
+          <Text appearance="hint" style={{marginTop: 5,...fontsFamily.Light}}>
             Enter your email and password.
           </Text>
         </Layout>
@@ -142,12 +144,13 @@ export default function SignUp({navigation}) {
               <Person onPress={setNameRef} />
             </View>
             <View onPress={setNameRef} style={{marginLeft: 10}}>
-              <Text onPress={setNameRef} appearance="hint">
+              <Text onPress={setNameRef} appearance="hint" style={{...fontsFamily.Light}}>
                 Name
               </Text>
               <TextInput
                 ref={nameRef}
                 value={name}
+                style={{...fontsFamily.Light}}
                 onChangeText={text => setName(text)}
                 style={{height: 35, width: widthToDp(65), paddingBottom: -5}}
                 placeholder="Name"
@@ -181,12 +184,13 @@ export default function SignUp({navigation}) {
               <EmailSvg onPress={setEmailRef} />
             </View>
             <View onPress={setEmailRef} style={{marginLeft: 10}}>
-              <Text onPress={setEmailRef} appearance="hint">
+              <Text onPress={setEmailRef} appearance="hint" style={{...fontsFamily.Light}} >
                 Email
               </Text>
               <TextInput
                 ref={emailRef}
                 value={email}
+                style={{...fontsFamily.Light}}
                 onChangeText={text => setEmail(text)}
                 style={{height: 35, width: widthToDp(65), paddingBottom: -5}}
                 placeholder="email here"
@@ -221,14 +225,12 @@ export default function SignUp({navigation}) {
             <View
               onPress={setPasswordRef}
               style={{marginLeft: 10, justifyContent: 'center'}}>
-              <Text onPress={setPasswordRef} appearance="hint">
+              <Text onPress={setPasswordRef} appearance="hint" style={{...fontsFamily.Light}}>
                 password
               </Text>
               <TextInput
                 ref={PasswordRef}
-                onFocus={()=>setAviodingView(true)}
-                onEndEditing={()=>setAviodingView(false)}
-                onSubmitEditing={()=>setAviodingView(false)}
+                style={{...fontsFamily.Light}}
                 secureTextEntry={secureTextEntry}
                 value={password}
                 onChangeText={text => setpassword(text)}
@@ -264,8 +266,8 @@ export default function SignUp({navigation}) {
               justifyContent: 'center',
               marginTop: 20,
             }}>
-            <Text>Already have an account?</Text>
-            <Text status="primary" style={{fontSize:20}} onPress={()=>navigation.navigate('login')} >   Sign in</Text>
+            <Text style={{...fontsFamily.Light}}>Already have an account?</Text>
+            <Text status="primary" style={{fontSize:20,...fontsFamily.Light}} onPress={()=>navigation.navigate('login')} >   Sign in</Text>
           </View>
         </Layout>
 

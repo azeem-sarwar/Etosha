@@ -26,9 +26,8 @@ import {BlurView} from '@react-native-community/blur';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
 import {TextInput} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { COLORS, fontsFamily } from '../../constants';
 
-const HeartIcon = props => <Icon {...props} name="heart" />;
-const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
 
 const useToggleState = (initialState = false) => {
   const [checked, setChecked] = React.useState(initialState);
@@ -91,10 +90,10 @@ export default function Login({navigation}) {
 
         <Layout
           style={{backgroundColor: '#F7F9FC', width: '100%', marginLeft: 20}}>
-          <Text status="basic" style={{fontSize: 20, marginVertical: 10}}>
+          <Text  style={{fontSize: 20, marginVertical: 10,color:"#000",...fontsFamily.Light}}>
             Login
           </Text>
-          <Text appearance="hint" style={{marginVertical: 5}}>
+          <Text appearance="hint" style={{marginVertical: 5,...fontsFamily.Light}}>
             Enter your email and password.
           </Text>
         </Layout>
@@ -130,12 +129,13 @@ export default function Login({navigation}) {
               <EmailSvg onPress={setEmailRef} />
             </View>
             <View onPress={setEmailRef} style={{marginLeft: 10}}>
-              <Text onPress={setEmailRef} appearance="hint">
+              <Text onPress={setEmailRef} appearance="hint" style={{...fontsFamily.Light}}>
                 Email
               </Text>
               <TextInput
                 ref={emailRef}
                 value={email}
+                style={{...fontsFamily.Light}}
                 onChangeText={text => setEmail(text)}
                 style={{height: 35, width: widthToDp(65), paddingBottom: -5}}
                 placeholder="email here"
@@ -170,13 +170,14 @@ export default function Login({navigation}) {
             <View
               onPress={setPasswordRef}
               style={{marginLeft: 10, justifyContent: 'center'}}>
-              <Text onPress={setPasswordRef} appearance="hint">
+              <Text onPress={setPasswordRef} style={{...fontsFamily.Light}} appearance="hint">
                 password
               </Text>
               <TextInput
                 ref={PasswordRef}
                 secureTextEntry={secureTextEntry}
                 value={password}
+                style={{...fontsFamily.Light}}
                 onChangeText={text => setpassword(text)}
                 style={{height: 35, width: widthToDp(60), paddingBottom: -5}}
                 placeholder="Password"
@@ -191,10 +192,10 @@ export default function Login({navigation}) {
           </View>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Toggle style={styles.toggle} status="info" {...Saveme}>
-              <Text appearance="hint">Save me</Text>
+            <Toggle style={styles.toggle}  {...Saveme}>
+              <Text appearance="hint" style={{...fontsFamily.Light}}>Save me</Text>
             </Toggle>
-            <Text onPress={()=>navigation.navigate('forget')} category="h6">Forget Password?</Text>
+            <Text onPress={()=>navigation.navigate('forget')} style={{...fontsFamily.Light}} category="h6">Forget Password?</Text>
           </View>
           <Button
             style={{
@@ -206,7 +207,8 @@ export default function Login({navigation}) {
             onPress={()=>navigation.navigate("UserTab")}
             
             >
-            Login
+            <Text style={{...fontsFamily.Light,color:COLORS.white}}>Login</Text>
+            
           </Button>
           <View
             style={{
@@ -215,8 +217,8 @@ export default function Login({navigation}) {
               justifyContent: 'center',
               marginTop: 20,
             }}>
-            <Text>Don't have an account?</Text>
-            <Text onPress={()=>navigation.navigate('signup')} style={{fontSize:20}} status="primary">   Sign Up</Text>
+            <Text style={{...fontsFamily.Light}}>Don't have an account?</Text>
+            <Text onPress={()=>navigation.navigate('signup')} style={{fontSize:20,...fontsFamily.Light}} status="primary">   Sign Up</Text>
           </View>
         </Layout>
 

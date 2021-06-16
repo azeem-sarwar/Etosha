@@ -62,7 +62,10 @@ export default function MyCard({navigation, route}) {
               onPress={() => navigation.navigate('Search')}>
               <Search />
             </TouchableOpacity>
-            <TouchableOpacity style={{marginLeft: 10}}>
+            <TouchableOpacity style={{marginLeft: 10}}
+      onPress={()=>navigation.navigate("Cart")}
+            
+            >
               <CartIcon />
               <Text
                 style={{

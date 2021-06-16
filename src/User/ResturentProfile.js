@@ -20,10 +20,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Arrow from '../../assesst/Icon/arrowBack.svg';
 import Search from '../../assesst/Icon/SearchBlack.svg';
 
-import Cart from './../../assesst/Icon/Cart.svg';
 import {FlatList} from 'react-native-gesture-handler';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-const width = Dimensions.get('screen').width;
+import { COLORS, SIZES } from '../../constants';
+
 
 
 const CategoryData = [
@@ -70,6 +70,8 @@ const CategoryData = [
 
 
 export default function ResturentProfile({navigation}) {
+
+  const [isSelected,setisSelected] = React.useState("Food")
   const rendertags = ({item}) => {
     return (
       <Text appearance="hint" style={styles.tags}>
@@ -82,8 +84,10 @@ export default function ResturentProfile({navigation}) {
       
     return (
       <TouchableOpacity style={{height:50,width:100,marginHorizontal:10,
-      backgroundColor:item.isSelected?"#F24F04":"#fff"
-      ,justifyContent:'center',alignItems:'center',borderRadius:40}}>
+      backgroundColor:item.CatName==isSelected?"#F24F04":"#fff"
+      ,justifyContent:'center',alignItems:'center',borderRadius:40}}
+      onPress={()=>navigation.navigate("FoodCategory",{CategoryName:item.CatName})}
+      >
           <Text style={{fontSize:18,color:item.isSelected?"#fff":"#000"}}>{item.CatName}</Text>
       </TouchableOpacity>
     );
@@ -94,7 +98,7 @@ export default function ResturentProfile({navigation}) {
       <View
         style={{
           height: 220, 
-          width: width/2.4,
+          width: SIZES.width/2.4,
           margin: 15,
           borderRadius: 30,
           backgroundColor: '#fff',
@@ -103,12 +107,12 @@ export default function ResturentProfile({navigation}) {
         
           <Image
             source={item.img}
-            style={{height: 130, width: width/2.4, borderRadius: 30}}
+            style={{height: 130, width: SIZES.width/2.4, borderRadius: 30}}
           />
           <View
           style={{
               marginLeft: 10,  
-              backgroundColor:'#F24F04',
+              backgroundColor:COLORS.primary,
               width:70,borderRadius:20,
               alignSelf:'center',
               marginTop:-10,
@@ -348,7 +352,7 @@ export default function ResturentProfile({navigation}) {
         
           <Image
             source={require('./../../assesst/dish.jpg')}
-            style={{height: 200, width: width - 20, borderRadius: 30}}
+            style={{height: 200, width: SIZES.width - 20, borderRadius: 30}}
           />
           <View
             style={{

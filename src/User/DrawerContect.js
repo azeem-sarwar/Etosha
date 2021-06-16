@@ -90,7 +90,9 @@ export function DrawerContent(props) {
           <Icon name="arrow-right" size={25} color="#000" />
           </TouchableOpacity>
 
-          <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}>
+          <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}
+          onPress={()=>props.navigation.navigate("MyCard")}
+          >
           <View>
               <Text style={{fontSize: 16}}>Payment Card</Text>
               <Text style={{fontSize: 10}} appearance="hint">See my payment card option</Text>
@@ -98,15 +100,19 @@ export function DrawerContent(props) {
           <Icon name="arrow-right" size={25} color="#000" />
           </TouchableOpacity>
 
- <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}>
+ <View style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}>
           <View>
               <Text style={{fontSize: 16}}>Push-Notifications</Text>
               <Text style={{fontSize: 10}} appearance="hint">Set up push notification</Text>
           </View>
           <Toggle checked={checked} onChange={onCheckedChange} />
-          </TouchableOpacity>
+          </View>
           
-          <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}>
+          <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}
+          onPress={()=>props.navigation.replace("login")}
+          
+          
+          >
           <View>
               <Text style={{fontSize: 16}}>Logout</Text>
               <Text style={{fontSize: 10}} appearance="hint">See you latter</Text>

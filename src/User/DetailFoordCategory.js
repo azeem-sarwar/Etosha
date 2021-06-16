@@ -18,6 +18,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Arrow from '../../assesst/Icon/arrowBack.svg';
 import Search from '../../assesst/Icon/SearchBlack.svg';
 import Cart from './../../assesst/Icon/Cart.svg'
+import { COLORS } from '../../constants';
+import { color } from 'react-native-reanimated';
 const width = Dimensions.get('screen').width;
 
 
@@ -95,7 +97,7 @@ export default function FoodCategory({navigation,route}) {
 let ScreenName= route.params.CategoryName;
 
 
-  const renderResturent=({item})=>{
+  const renderFoodList=({item})=>{
     return(
       <TouchableOpacity
       style={{
@@ -230,12 +232,12 @@ let ScreenName= route.params.CategoryName;
       <TouchableOpacity style={{marginLeft:10}}
       onPress={()=>navigation.navigate("Search")}
       >
-      <Search  />
+     <Icon name="search"  color={COLORS.black} size={25} />
       </TouchableOpacity>
       <TouchableOpacity style={{marginLeft:10}}>
 
       <Cart />
-      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
+      <Text style={{fontSize:10,backgroundColor:COLORS.primary,color:COLORS.white,borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
       </TouchableOpacity>
       
       </View>
@@ -256,7 +258,7 @@ let ScreenName= route.params.CategoryName;
      ListHeaderComponent={header}
        data={NearByReturent}
        keyExtractor={(item)=>item.id}
-       renderItem={renderResturent}
+       renderItem={renderFoodList}
        
      />
     

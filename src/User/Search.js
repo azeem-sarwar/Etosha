@@ -21,6 +21,7 @@ import Search from '../../assesst/Icon/SearchBlack.svg';
 import SearchWhite from '../../assesst/Icon/search.svg';
 
 import Cart from './../../assesst/Icon/Cart.svg'
+import { COLORS, fontsFamily } from '../../constants';
 const width = Dimensions.get('screen').width;
 
 
@@ -140,7 +141,7 @@ const [index,setIndex] =React.useState(1);
         <View
           style={{
               marginLeft: 10,  
-              backgroundColor:'#F24F04',
+              backgroundColor:COLORS.primary,
               width:70,borderRadius:20,
               alignSelf:'center',
               marginTop:-10,
@@ -264,7 +265,7 @@ const [index,setIndex] =React.useState(1);
       >
 
       <Cart />
-      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5,color:'#fff'}}>5</Text>
+      <Text style={{fontSize:10,backgroundColor:COLORS.primary,borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5,color:'#fff'}}>5</Text>
       </TouchableOpacity>
       
       </View>
@@ -299,7 +300,7 @@ const [index,setIndex] =React.useState(1);
           style={{
             height: 50,
             width: 50,
-            backgroundColor: '#F24F04',
+            backgroundColor: COLORS.primary,
             borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
@@ -310,11 +311,11 @@ const [index,setIndex] =React.useState(1);
 
       <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:5,marginHorizontal:20}}>
 
-          <Button size="giant" style={{width:150,borderRadius:40}} onPress={()=>setIndex(1)} status={index!==1?"success":"primary"} >
-              Foods
+          <Button size="giant" style={{width:150,borderRadius:40}} onPress={()=>setIndex(1)} status={index!==1?"info":"primary"} >
+             <Text style={{...fontsFamily.Light,color:index==1? COLORS.white : COLORS.black}} >Foods</Text> 
           </Button>
-          <Button size="giant" style={{width:150,borderRadius:40}} onPress={()=>setIndex(2)} status={index!==2?"success":"primary"} >
-              Resturents
+          <Button size="giant" style={{width:150,borderRadius:40}} onPress={()=>setIndex(2)} status={index!==2?"info":"primary"} >
+            <Text style={{...fontsFamily.Light,color:index==2? COLORS.white : COLORS.black}} >Resturants</Text>   
           </Button>
       </View>
 

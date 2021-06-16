@@ -67,7 +67,7 @@ const data = [
   },
 ];
 
-export default function Profile({navigation}) {
+export default function MyOrder({navigation}) {
   const [index, setIndex] = React.useState(1);
   const [RunningOrder, SetRuningOrder] = React.useState(
     data.filter(item => item.status == 'pending'),
@@ -76,10 +76,12 @@ export default function Profile({navigation}) {
     data.filter(item => item.status == 'done'),
   );
   const RanderFoods = ({item}) => {
-    console.log(RunningOrder);
+    
 
     return (
-      <View style={styles.renderFoodCard}>
+      <TouchableOpacity style={styles.renderFoodCard}
+      onPress={()=>navigation.navigate("Review")}
+      >
         <View style={styles.CardLogoContainer}>
           <Avatar source={item.ResturentLogo} />
 
@@ -118,7 +120,7 @@ export default function Profile({navigation}) {
             <Text style={styles.buttonText}>Cancel</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -141,7 +143,7 @@ export default function Profile({navigation}) {
           size="giant"
           style={[styles.ButtonSele]}
           onPress={() => setIndex(1)}
-          status={index !== 1 ? 'success' : 'primary'}>
+          status={index !== 1 ? 'info' : 'primary'}>
           <Text style={{color: index == 1 ? '#Fff' : '#000'}}>
             Running Order
           </Text>
@@ -150,7 +152,7 @@ export default function Profile({navigation}) {
           size="giant"
           style={styles.ButtonSele}
           onPress={() => setIndex(2)}
-          status={index !== 2 ? 'success' : 'primary'}>
+          status={index !== 2 ? 'info' : 'primary'}>
           <Text style={{color: index == 2 ? '#Fff' : '#000'}}>Past Order </Text>
         </Button>
       </View>

@@ -27,10 +27,7 @@ import Person from '../../assesst/Icon/person.svg';
 import {BlurView} from '@react-native-community/blur';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
 import {TextInput} from 'react-native-gesture-handler';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-const HeartIcon = props => <Icon {...props} name="heart" />;
-const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
+import { COLORS, fontsFamily } from '../../constants';
 
 
 
@@ -88,10 +85,10 @@ export default function ResetPassword({navigation}) {
 
         <Layout
           style={{backgroundColor: '#F7F9FC', width: '100%', marginLeft: 20}}>
-          <Text status="basic" style={{fontSize: 20, marginVertical: 10}}>
+          <Text status="basic" style={{fontSize: 20, marginVertical: 10,...fontsFamily.Light}}>
           Reset Password
           </Text>
-          <Text appearance="hint" style={{marginTop: 5}}>
+          <Text appearance="hint" style={{marginTop: 5,...fontsFamily.Light}}>
           Enter a new password
           </Text>
         </Layout>
@@ -204,7 +201,8 @@ export default function ResetPassword({navigation}) {
             }}
             onPress={()=>navigation.navigate("UserTab")}
             >
-            Change
+            <Text style={{...fontsFamily.Light,color:COLORS.white}}>Change</Text>
+            
           </Button>
          
         </Layout>

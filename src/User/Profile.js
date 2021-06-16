@@ -20,6 +20,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Arrow from '../../assesst/Icon/arrowBack.svg';
+import { fontsFamily } from '../../constants';
 
 const width = Dimensions.get('screen').width;
 
@@ -210,15 +211,15 @@ export default function Profile({navigation}) {
         size="giant"
         style={{width: 150, borderRadius: 40}}
         onPress={() => setIndex(1)}
-        status={index !== 1 ? 'success' : 'primary'}>
-        <Text style={{color:index == 1 ?"#Fff":"#000"}}>Favourite</Text>
+        status={index !== 1 ? 'info' : 'primary'}>
+        <Text style={{color:index == 1 ?"#Fff":"#000",...fontsFamily.Light}}>Favourite</Text>
       </Button>
       <Button
         size="giant"
         style={{width: 150, borderRadius: 40}}
         onPress={() => setIndex(2)}
-        status={index !== 2 ? 'success' : 'primary'}>
-        <Text style={{color:index == 2 ?"#Fff":"#000"}}>Settings</Text>
+        status={index !== 2 ? 'info' : 'primary'}>
+        <Text style={{color:index == 2 ?"#Fff":"#000",...fontsFamily.Light}}>Settings</Text>
       </Button>
     </View>
   </View>
@@ -242,7 +243,7 @@ export default function Profile({navigation}) {
         />
       ) : null}
 
-      {index === 2 ? null : null}
+      {index === 2 ? Headers() : null}
     </Layout>
   );
 }

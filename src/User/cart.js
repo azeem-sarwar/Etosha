@@ -16,6 +16,7 @@ import ADDICon from 'react-native-vector-icons/AntDesign';
 import Arrow from '../../assesst/Icon/arrowBack.svg';
 import Search from '../../assesst/Icon/SearchBlack.svg';
 import CartIcon from './../../assesst/Icon/Cart.svg';
+import { COLORS, fontsFamily } from '../../constants';
 const width = Dimensions.get('screen').width;
 
 const NearByReturent = [
@@ -110,11 +111,11 @@ export default function Cart({navigation, route}) {
         style={{
           marginHorizontal: 10,
           borderRadius: 30,
-          backgroundColor: '#fff',
+          backgroundColor: COLORS.white,
           marginTop: 20,
           flexDirection: 'row',
           marginBottom: 10,
-          shadowColor: '#000',
+          shadowColor: COLORS.black,
           shadowOffset: {
             width: 0,
             height: 8,
@@ -135,7 +136,7 @@ export default function Cart({navigation, route}) {
               position: 'absolute',
               top: 10,
               right: 15,
-              backgroundColor: '#fff',
+              backgroundColor: COLORS.white,
               borderRadius: 50,
               height: 30,
               width: 30,
@@ -146,19 +147,19 @@ export default function Cart({navigation, route}) {
               onPress={() => alert('heart icon is pressed')}
               name="heart"
               size={25}
-              color="#F24F04"
+              color={COLORS.primary}
             />
           </View>
         </View>
 
         <View style={{justifyContent: 'space-between'}}>
           <View style={{justifyContent: 'space-between', flexShrink: 1}}>
-            <Text style={{marginLeft: 10, marginVertical: 5, fontSize: 15}}>
+            <Text style={{marginLeft: 10, marginVertical: 5, fontSize: 15,...fontsFamily.Light}}>
               {item.FoodName}
             </Text>
 
             <Text
-              style={{marginLeft: 10, marginVertical: 5, fontSize: 10}}
+              style={{marginLeft: 10, marginVertical: 5, fontSize: 10,...fontsFamily.Light}}
               appearance="hint">
               {item.FoodName}
             </Text>
@@ -176,13 +177,14 @@ export default function Cart({navigation, route}) {
                 fontSize: 15,
                 textAlign: 'center',
                 marginLeft: 10,
-                flex: 1,
+                flex: 1
+                ,...fontsFamily.Light
               }}>
               {item.price}
             </Text>
             <View
               style={[{
-                backgroundColor: '#F24F04',
+                backgroundColor: COLORS.primary,
                 borderRadius: 20,
                 marginVertical: 10,
                 justifyContent: 'space-around',
@@ -193,13 +195,13 @@ export default function Cart({navigation, route}) {
                 marginRight: -30,
               },styles.shadow]}>
               <TouchableOpacity>
-                <ADDICon name="minus" color="#fff" size={20} />
+                <ADDICon name="minus" color={COLORS.white} size={20} />
               </TouchableOpacity>
 
-              <Text style={{color: '#fff', fontSize: 20}}>3</Text>
+              <Text style={{color: COLORS.white, fontSize: 20,...fontsFamily.Light}}>3</Text>
 
               <TouchableOpacity>
-                <ADDICon name="plus" color="#fff" size={20} />
+                <ADDICon name="plus" color={COLORS.white} size={20} />
               </TouchableOpacity>
             </View>
           </View>
@@ -228,12 +230,12 @@ export default function Cart({navigation, route}) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderWidth: 0.5,
-                borderColor: '#D7D9DB',
+                borderColor: COLORS.lightGray,
               }}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+               <Icon name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
-            <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light'}}>
+            <Text style={{marginLeft: 5,...fontsFamily.Light}}>
               Cart
             </Text>
           </View>
@@ -248,7 +250,7 @@ export default function Cart({navigation, route}) {
               <Text
                 style={{
                   fontSize: 10,
-                  backgroundColor: '#F24F04',
+                  backgroundColor: COLORS.primary,
                   borderRadius: 50,
                   width: 15,
                   height: 15,
@@ -256,6 +258,8 @@ export default function Cart({navigation, route}) {
                   position: 'absolute',
                   right: -5,
                   top: -5,
+                  color:COLORS.white
+                  ,...fontsFamily.Light
                 }}>
                 5
               </Text>
@@ -279,7 +283,7 @@ export default function Cart({navigation, route}) {
       <View
         style={{
           height: 150,
-          backgroundColor: '#fff',
+          backgroundColor: COLORS.white,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
         }}>
@@ -291,8 +295,8 @@ export default function Cart({navigation, route}) {
             marginHorizontal: 20,
             justifyContent: 'space-between',
           }}>
-          <Text>10 Selected Food{'\n'}Items</Text>
-          <Text>Total Amount :{'\n'}$90.00</Text>
+          <Text style={{...fontsFamily.Light}}>10 Selected Food{'\n'}Items</Text>
+          <Text style={{...fontsFamily.Light}}>Total Amount :{'\n'}$90.00</Text>
         </View>
         <Button
           style={[{
@@ -306,7 +310,10 @@ export default function Cart({navigation, route}) {
           ]}
           onPress={()=>navigation.navigate("CheckOut")}
           >
+          <Text style={{...fontsFamily.Light,color:COLORS.white}}>
           Check Out
+          </Text>
+          
         </Button>
       </View>
 
@@ -318,11 +325,11 @@ const styles = StyleSheet.create({
   tags: {
     marginLeft: 5,
     marginHorizontal: 30,
-    backgroundColor: '#D7D9DB',
+    backgroundColor: COLORS.lightGray,
     borderRadius: 10,
     paddingHorizontal: 10,
   },
-  shadow:{shadowColor: "#F24F04",
+  shadow:{shadowColor: COLORS.primary,
   shadowOffset: {
       width: 0,
       height: 8,

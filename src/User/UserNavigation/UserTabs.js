@@ -2,7 +2,8 @@ import React from 'react';
 import {
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Text
 } from 'react-native';
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 import Svg, { Path } from 'react-native-svg';
@@ -15,6 +16,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import Foundation from 'react-native-vector-icons/Foundation'
 import StoreIcon from './../../../assesst/Icon/Store.svg'
 import DrawerNavigation from './DrawerNavigation';
+import StackNavigationUser, { ProfileStack } from './HomeStackNavgation';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,23 +48,23 @@ const TabBarCustomButtonForNormaol = ({ accessibilityState, children, onPress })
    
         return (
             <View style={{ flex: 1, alignItems: "center", }}>
-
+            
                   <TouchableOpacity
                     style={{
-                        top: -22.5,
+                        top:-20,
                         justifyContent: 'center',
                         alignItems: 'center',
                         width: 50,
                         height: 50,
                         borderRadius: 25,
                         backgroundColor: "#F24F04",
-                        zIndex:10,
+                        zIndex:10
                     }}
                     onPress={onPress}
                 >
                     {children}
                 </TouchableOpacity>
-                <View style={{  position: 'absolute', }}>
+                <View style={{  position: 'absolute' }}>
                     
                     <Svg
                         width={80}
@@ -127,14 +129,14 @@ const UserTabs = () => {
             right: 0,
             borderTopWidth: 0,
             backgroundColor: 'transparent',
-            elevation: 20,
+            
           },
         }}
-        shifting="false"
+       
         tabBar={props => <CustomTabBar props={props} />}>
         <Tab.Screen
           name="Home"
-          component={DrawerNavigation}
+          component={StackNavigationUser}
           options={{
             tabBarIcon: ({focused}) => (
               <Icon
@@ -174,7 +176,7 @@ const UserTabs = () => {
         />
 
         <Tab.Screen
-          name="User"
+          name="Usea"
           component={Home}
           options={{
             tabBarIcon: ({focused}) => (
@@ -188,8 +190,8 @@ const UserTabs = () => {
           }}
         />
         <Tab.Screen
-          name="User1"
-          component={Home}
+          name="ProfileTab"
+          component={ProfileStack}
           options={{
             tabBarIcon: ({focused}) => (
                 <Icocion

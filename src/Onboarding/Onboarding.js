@@ -1,6 +1,5 @@
-import React, {useRef} from 'react';
-import {StyleSheet, FlatList, View, Animated} from 'react-native';
-import {Button, Icon, Layout, Text} from '@ui-kitten/components';
+import React from 'react';
+
 
 import BottomLeftHand from './../../assesst/Svg/bottomLeftHand.svg';
 import BottomRightHand from '../../assesst/Svg/bottomRightHand.svg';
@@ -10,80 +9,236 @@ import TopLefthand from '../../assesst/Svg/leftTopHand.svg';
 import Burger from '../../assesst/Svg/burger.svg';
 import JuiceGlass from '../../assesst/Svg/juiceGlass.svg';
 import Pizza from '../../assesst/Svg/Pizza.svg';
-import Onboarding1 from '../../assesst/Svg/Onboarding1.svg';
-import Onboarding2 from '../../assesst/Svg/Onboarding2.svg';
-import Onboarding3 from '../../assesst/Svg/OnBoarding3.svg';
+import {
+  Text,
+  Button,
+  Layout,
+  StyleService
+} from '@ui-kitten/components';
 
-import {BlurView} from '@react-native-community/blur';
-import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import AppIntroSlider from 'react-native-app-intro-slider';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import {
+  Animated,
+  Image,
+  SafeAreaView,
+  View,
+  TouchableOpacity
+} from 'react-native';
 
-const data = [
-  {
-    id: '1',
-    SvgBanner: Onboarding1,
-    title: 'Find a Resturent',
+// constants
+import {  COLORS, FONTS, fontsFamily, SIZES } from "../../constants";
+import { height, heightToDp, width,widthToDp } from '../../Utils/Responsive';
+import Icon from 'react-native-vector-icons/Ionicons'
+
+
+
+
+const onBoardings = [
+  { 
+    title: 'Find a Resturant',
     description: 'Fastest operation to provide food \nby the fence.',
+      img: require('../../assesst/onboarding1.png')
   },
   {
-    id: '2',
-    SvgBanner: Onboarding2,
-    title: 'Pick THe Food',
+    title: 'Pick The Food',
     description: 'Fastest operation to provide food \nby the fence.',
+      img: require('../../assesst/onboarding2.png')
   },
   {
-    id: '3',
-    SvgBanner: Onboarding3,
     title: 'Get Fastest Delivery',
     description: 'Fastest operation to provide food \nby the fence.',
-  },
+      img: require('../../assesst/onboarding3.png')
+  }
 ];
 
-const HeartIcon = props => <Icon {...props} name="arrow-forward-outline" />;
-export default class Onboarding extends React.Component {
 
-   renderItem = ({item}) => {
-    return (
-      <View style={{marginTop: heightToDp(20)}}>
-        <item.SvgBanner
-          style={{elevation: -1, marginHorizontal: 15}}
-          height={heightToDp(40)}
-          width={widthToDp(90)}
-        />
-        <Text style={{textAlign: 'center'}} category="h3">
-          {item.title}
-        </Text>
-        <Text style={{textAlign: 'center', fontSize: 10}}>
-          {item.description}
-        </Text>
-      </View>
-    );
-  };
-  _renderNextButton() {
-    return (
-      <Ionicons name="arrow-forward-outline" size={20} color="#fff" />
-    );
-  }
 
-  renderSkipButton = () => {
-    return (
-      <Text style={{textAlign: 'center', fontSize: 15,marginTop:10}}>
-        Skip
-      </Text>
-    );
-  };
-  OnSkip=()=>{
-    this.props.navigation.replace("UserTab")
-  }
-  OnDone=()=>{
-    this.props.navigation.replace("loginsingup")
-  }
 
-  render(){return (
-    <Layout style={styles.container}>
-      <Layout style={{flex: 1}}>
+
+
+
+// 
+
+
+
+
+
+
+const OnBoarding = ({navigation}) => {
+
+  const [scrollToIndex, setScrollToIndex] = React.useState(0);
+
+  const [completed, setCompleted] = React.useState(0);
+
+ 
+  const [ref, setRef] = React.useState(null);
+  const [RefOfImage, setRefOfImage] = React.useState(null);
+
+  
+
+    const scrollX = new Animated.Value(0);
+
+
+    React.useEffect(() => {
+
+     
+
+        scrollX.addListener(({ value }) => {
+
+       
+          
+
+            if(value>=0 && value<=width-1)
+            {
+              setScrollToIndex(0);
+            }
+            else if(value>=width && value<=(width*2))
+            {
+              setScrollToIndex(1);
+
+            }
+            else {
+              setScrollToIndex(2)
+            }
+         
+          
+            if (Math.floor(value) == 2*SIZES.width) {
+                setCompleted(true)
+            }
+        });
+
+        return () => scrollX.removeListener();
+    }, [scrollX]);
+ 
+  
+
+    // Render
+
+    const scrollHandler = () => {
+      console.log(onBoardings.length, scrollToIndex );
+      if (onBoardings.length > scrollToIndex) {
+        ref.scrollTo({
+          x: (scrollToIndex + 1) * width,
+          y: 0,
+          animated: true,
+        });
+      } else {
+        alert('Out of Max Index');
+      }
+    };
+
+
+
+    function renderContent() {
+        return (
+            <Animated.ScrollView
+            ref={ref=>setRef(ref)}
+               horizontal
+                pagingEnabled
+                scrollEnabled
+                decelerationRate={0}
+                scrollEventThrottle={16}
+                snapToAlignment="center"
+                showsHorizontalScrollIndicator={false}
+                onScroll={Animated.event([
+                    { nativeEvent: { contentOffset: { x: scrollX } } },
+                ], { useNativeDriver: false })}
+            >
+                {onBoardings.map((item, index) => (
+                    <View
+                        //center
+                        //bottom
+                        key={`img-${index}`}
+                        style={styles.imageAndTextContainer}
+                        onLayout={event => {
+    const layout = event.nativeEvent.layout;
+    console.log('height:', layout.height);
+    console.log('width:', layout.width);
+    console.log('x:', layout.x);
+    console.log('y:', layout.y);
+  }}
+                    >
+                        
+                    
+                        <View style={{ alignItems: 'center', }}>
+                        <Image
+                                source={item.img}
+                                resizeMode="cover"
+                                style={{   
+                                }}
+                          ref={ref=>setRefOfImage(ref)}
+
+                            />
+                        </View>
+
+
+                  
+
+                        <View
+                            style={{
+                                top:50,
+                                marginBottom:-20
+                            }}
+                        >
+                            <Text style={{
+                                ...FONTS.h2,
+                                color: COLORS.gray,
+                                textAlign: 'center',
+                            }}
+                            >
+                                {item.title}
+                            </Text>
+
+                            <Text style={{
+                                ...FONTS.body5,
+                                textAlign: 'center',
+                                marginTop: SIZES.base,
+                                
+                            }}
+                            appearance="hint"
+                            >
+                                {item.description}
+                            </Text>
+                        </View>
+                        {/* Button */}
+                          </View>
+                ))}
+            </Animated.ScrollView>
+        );
+    }
+
+    function renderDots() {
+
+        const dotPosition = Animated.divide(scrollX, SIZES.width);
+
+        return (
+            <View style={styles.dotsContainer}>
+                {onBoardings.map((item, index) => {
+                    const opacity = dotPosition.interpolate({
+                        inputRange: [index - 1, index, index + 1],
+                        outputRange: [0.3, 1, 0.3],
+                        extrapolate: "clamp"
+                    });
+
+                    const dotSize = dotPosition.interpolate({
+                        inputRange: [index - 1, index, index + 1],
+                        outputRange: [SIZES.base, 17, SIZES.base],
+                        extrapolate: "clamp"
+                    });
+
+                    return (
+                        <Animated.View
+                            key={`dot-${index}`}
+                            opacity={opacity}
+                            style={[styles.dot, { width: dotSize, height: dotSize, }]}
+                        />
+                    );
+                })}
+            </View>
+        );
+    }
+
+    return (
+        <SafeAreaView style={styles.container}>
         <TopLefthand
           width={widthToDp(50)}
           height={heightToDp(25)}
@@ -100,23 +255,59 @@ export default class Onboarding extends React.Component {
           height={heightToDp(30)}
           style={styles.burger}
         />
+            <View>
+                {renderContent()}
+            </View>
+            <View style={styles.dotsRootContainer}>
+                {renderDots()}
+            </View>
+            <View style={{position:'absolute',bottom:heightToDp(5),alignSelf:'center'}}>
+                       <TouchableOpacity
+                       
+                            style={{
+                               
+                                width: 60,
+                                height: 60,
+                                paddingLeft: 20,
+                                justifyContent: 'center',
+                                
+                                borderRadius:50,
+                                backgroundColor: COLORS.primary
+                            }}
+                            onPress={()=>{
+                              
+                              console.log("ok" ,scrollToIndex)
+                              setScrollToIndex(scrollToIndex+1);
 
-        <AppIntroSlider
-       
-          renderItem={this.renderItem}
-          data={data}
-          renderNextButton={this._renderNextButton}
-          renderDoneButton={this._renderNextButton}
-          renderSkipButton={this.renderSkipButton}
-          onSkip={this.OnSkip}
-          onDone={this.OnDone}
-          activeDotStyle={{backgroundColor:"#000"}}
-          dotClickEnabled={true}
-          showSkipButton={true}
-          dotStyle={{backgroundColor:"gray" }}
-        />
+                              if(completed)
+                              {
+                                 navigation.navigate("loginsingup")
+                                
+                              }
+                              else{
+                                scrollHandler()
+                              }
+                            }}
+                        >
+                            <Icon name="arrow-forward-outline" size={25} color={COLORS.white}></Icon>
+                        </TouchableOpacity>
 
-        <BottomRightHand
+                        <TouchableOpacity
+                            style={{
+                               
+                                
+                                justifyContent: 'center',
+                               
+                            }}
+                            onPress={() => { 
+                              navigation.replace("UserTab")
+                             }}
+                        >
+                            <Text style={{...fontsFamily.Light,textAlign:'center',marginTop:10}}>Skip</Text>
+                        </TouchableOpacity>
+                       </View>
+                      
+            <BottomRightHand
           width={widthToDp(70)}
           height={heightToDp(20)}
           style={styles.bottomRighthandIcon}
@@ -128,14 +319,51 @@ export default class Onboarding extends React.Component {
         />
         <JuiceGlass style={styles.Juices} />
         <Burger style={styles.BurgerBottom} />
-      </Layout>
-    </Layout>
-  );}
-}
-const styles = StyleSheet.create({
+                
+        </SafeAreaView>
+    );
+};
+
+
+
+export default OnBoarding;
+
+
+
+
+
+
+const styles = StyleService.create({
   container: {
     flex: 1,
-  },
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.white
+},
+imageAndTextContainer: {
+    width: SIZES.width,
+    justifyContent:'center',
+    // alignItems:'center',
+ 
+    height:height/1.08
+    
+},
+dotsRootContainer: {
+  position:'absolute',
+  top:heightToDp(58)
+},
+dotsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+ 
+
+},
+dot: {
+    borderRadius: SIZES.radius,
+    backgroundColor: COLORS.black,
+    marginHorizontal: SIZES.radius / 2
+},
   text: {
     textAlign: 'center',
   },
@@ -169,6 +397,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: -80,
     top: -65,
+    zIndex:10
   },
   FoodxaIcon: {
     opacity: 0.15,

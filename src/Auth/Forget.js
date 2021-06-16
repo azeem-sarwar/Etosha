@@ -29,6 +29,8 @@ import {heightToDp, widthToDp} from '../../Utils/Responsive';
 import {TextInput} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { fontsFamily } from '../../constants';
+
 const HeartIcon = props => <Icon {...props} name="heart" />;
 const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
 
@@ -95,10 +97,10 @@ export default function Forget({navigation}) {
 
         <Layout
           style={{backgroundColor: '#F7F9FC', width: '100%', marginLeft: 20}}>
-          <Text status="basic" style={{fontSize: 20, marginVertical: 10}}>
+          <Text status="basic" style={{fontSize: 20, marginVertical: 10,...fontsFamily.Light}}>
             Forget Passwor
           </Text>
-          <Text appearance="hint" style={{marginTop: 5}}>
+          <Text appearance="hint" style={{marginTop: 5,...fontsFamily.Light}}>
             Enter your Number.
           </Text>
         </Layout>
@@ -146,7 +148,7 @@ export default function Forget({navigation}) {
                 ref={emailRef}
                 value={nomber}
                 onChangeText={text => setNumber(text)}
-                style={{height: 35, width: widthToDp(65), paddingBottom: -5}}
+                style={{height: 35, width: widthToDp(65), paddingBottom: -5,...fontsFamily.Light}}
                 placeholder="Number"
               />
             </View>

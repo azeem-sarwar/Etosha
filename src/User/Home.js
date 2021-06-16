@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 import {
   Text,
-  Button
+  Button,
+  Avatar
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menue from '../../assesst/Icon/menue.svg';
@@ -85,7 +86,7 @@ export default function Home({navigation}) {
   };
   const renderPopularFood = ({item}) => {
     return (
-      <View
+      <TouchableOpacity
         style={{
           height: 220, 
           width: width - 140,
@@ -93,7 +94,9 @@ export default function Home({navigation}) {
           borderRadius: 30,
           backgroundColor: '#fff',
           
-        }}>
+        }}
+        onPress={()=>navigation.navigate('FoodPage')}
+        >
         
           <Image
             source={item.img}
@@ -148,7 +151,7 @@ export default function Home({navigation}) {
             </Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -175,8 +178,9 @@ export default function Home({navigation}) {
           marginHorizontal: 20,
           justifyContent: 'space-between',
           alignItems: 'center',
+         
         }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flexDirection: 'row', alignItems: 'center',}}>
           <TouchableOpacity
             style={{
               height: 40,
@@ -196,10 +200,15 @@ export default function Home({navigation}) {
             Home{' '}
           </Text>
         </View>
-        <Image
+        <TouchableOpacity 
+       
+        >
+        <Avatar
+        onPress={()=>{alert("ok")}}
           source={require('../../assesst/profilePic.png')}
           style={{height: 40, width: 40, borderRadius: 10}}
         />
+        </TouchableOpacity>
       </View>
 
       {/* Search Bar input */}
@@ -290,7 +299,7 @@ export default function Home({navigation}) {
           </Text>
         </TouchableOpacity>
       </View>
-      <View
+      <TouchableOpacity
         style={{
           height: 290, 
           width: width - 20,
@@ -298,7 +307,9 @@ export default function Home({navigation}) {
           borderRadius: 30,
           backgroundColor: '#fff',
           marginBottom:80
-        }}>
+        }}
+        onPress={()=>navigation.navigate("ResturentProfile")}
+        >
         
           <Image
             source={require('./../../assesst/dish.jpg')}
@@ -368,7 +379,7 @@ export default function Home({navigation}) {
              
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     
      
     </ScrollView>

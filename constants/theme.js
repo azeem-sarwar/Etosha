@@ -9,8 +9,10 @@ export const COLORS = {
     // colors
     black: "#1E1F20",
     white: "#FFFFFF",
+    gray: "#6A6A6A",
+    blue: "#0682FE",
 
-    lightGray: "#F5F5F6",
+    lightGray: "#D7D9DB",
     lightGray2: "#F6F6F7",
     lightGray3: "#EFEFF1",
     lightGray4: "#F8F8F9",
@@ -46,17 +48,17 @@ export const SIZES = {
 };
 
 export const fontsFamily={
-    Poppins_Thin:"Poppins-Thin",
-    Light:"Poppins-Light",
-    Bold:"Poppins-Bold",
-    SemiBold:"Poppins-SemiBold",
-    ExtraLight:"Poppins-ExtraLight",
-    Poppins_Black:"Poppins-Black",
+    Poppins_Thin:{fontFamily:"Poppins-Thin"},
+    Light:{fontFamily:"Poppins-Light"},
+    Bold:{fontFamily:"Poppins-Bold"},
+    SemiBold:{fontFamily:"Poppins-SemiBold"},
+    ExtraLight:{fontFamily:"Poppins-ExtraLight"},
+    Poppins_Black:{fontFamily:"Poppins-Black"},
 }
 
 
 export const FONTS = {
-    largeTitle: { fontFamily: "Poppins-Light", fontSize: SIZES.largeTitle,  },
+    largeTitle: { fontFamily: "Poppins-Bold", fontSize: SIZES.largeTitle,  },
     h1: { fontFamily: "Poppins-Bold", fontSize: SIZES.h1,},
     h2: { fontFamily: "Poppins-Light", fontSize: SIZES.h2, },
     h3: { fontFamily: "Poppins-Light", fontSize: SIZES.h3, },

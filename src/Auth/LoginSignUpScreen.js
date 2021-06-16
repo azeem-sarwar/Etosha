@@ -21,6 +21,7 @@ import ShefIcon from '../../assesst/Svg/shefIcon.svg';
 
 import {BlurView} from '@react-native-community/blur';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
+import { COLORS,fontsFamily } from '../../constants';
 
 const HeartIcon = props => <Icon {...props} name="heart" />;
 export default function SaplashScreen({navigation}) {
@@ -61,10 +62,11 @@ export default function SaplashScreen({navigation}) {
             textAlign: 'center',
             marginTop: 20,
             marginBottom: 10,
+            ...fontsFamily.Light
           }}>
           Good Evening
         </Text>
-        <Text style={{textAlign: 'center'}} appearance="hint">
+        <Text style={{textAlign: 'center',...fontsFamily.Light}} appearance="hint">
           Fastest food delivery service
           {'\n'}for you.
         </Text>
@@ -73,16 +75,16 @@ export default function SaplashScreen({navigation}) {
           <Button
           onPress={()=>navigation.navigate("signup")}
             style={{height: 60, width: 135, borderRadius: 30}}
-            status="success">
-            Sign Up
+            status="info" >
+            <Text style={{...fontsFamily.Light}}>Sign Up</Text>
           </Button>
           <Button 
           onPress={()=>navigation.navigate("login")}
           style={{height: 60, width: 135, borderRadius: 30}}>
-            Login
+            <Text style={{color:COLORS.white,...fontsFamily.Light}}>Login</Text>
           </Button>
         </Layout>
-        <Text style={{textAlign: 'center', marginTop: 10}}>Guest Visit</Text>
+        <Text onPress={()=>navigation.navigate("UserTab")} style={{textAlign: 'center', marginTop: 10,...fontsFamily.Light}}>Guest Visit</Text>
 
         <BottomRightHand
           width={widthToDp(70)}

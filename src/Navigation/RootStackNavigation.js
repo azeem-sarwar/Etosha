@@ -25,7 +25,7 @@ export default function RootStackNavigation() {
             <Stack.Screen name="otp" component={EnterOTp} />
             <Stack.Screen name="forget" component={Forget} />
             <Stack.Screen name="ressetpass" component={ResetPassword} />
-            <Stack.Screen name="UserTab" component={UserTabs} />
+            <Stack.Screen name="UserTab" component={DrawerNavigation} />
         </Stack.Navigator>
     )
 }
