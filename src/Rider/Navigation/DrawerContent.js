@@ -72,7 +72,7 @@ export function DrawerContent(props) {
 
 
           <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}} 
-          onPress={()=>props.navigation.navigate("Categories")}
+          onPress={()=>props.navigation.navigate("Deliveries")}
           >
           <View>
               <Text style={{fontSize: 16}}>Deliveries</Text>
@@ -83,7 +83,7 @@ export function DrawerContent(props) {
 
 
           <TouchableOpacity style={{flexDirection:'row',margin:20,justifyContent:'space-between'}}
-           onPress={()=>props.navigation.navigate("Profile")}
+           onPress={()=>props.navigation.navigate("Rider Profile")}
           >
           <View>
               <Text style={{fontSize: 16}}>Profile</Text>

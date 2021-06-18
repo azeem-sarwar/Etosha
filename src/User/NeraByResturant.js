@@ -17,7 +17,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import LeftArrow from 'react-native-vector-icons/Entypo';
 import Cart from './../../assesst/Icon/Cart.svg'
-import { COLORS, SIZES } from '../../constants';
+import { COLORS, FONTS, SIZES } from '../../constants';
 
 
 
@@ -60,10 +60,10 @@ const NearByReturent = [
 
 
 export default function NeraByResturent({navigation}) {
-  const rendertags=()=>{
+  const rendertags=({item})=>{
     return(
       <Text appearance="hint" style={styles.tags}>
-      Burger
+     {item.tag}
     </Text>
     )
 }
@@ -75,10 +75,11 @@ export default function NeraByResturent({navigation}) {
         height: 290, 
         width: SIZES.width - 20,
         marginTop:40,
-        marginHorizontal:10,
+        alignSelf:'center',
         borderRadius: 30,
         backgroundColor: '#fff',
-        bottom:60
+        bottom:60,
+        elevation:10
        
       }}
       onPress={()=>navigation.navigate("ResturentProfile")}
@@ -118,7 +119,7 @@ export default function NeraByResturent({navigation}) {
         </Button>
       
       <View>
-        <Text style={{marginLeft: 10, marginVertical: 5,fontSize:20}} appearance="hint">
+        <Text style={{marginLeft: 10, marginVertical: 5,...FONTS.h3}} >
           Burger King
         </Text>
         
@@ -167,7 +168,7 @@ export default function NeraByResturent({navigation}) {
         marginTop: 20,
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal:20
+        marginHorizontal:10
         
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -207,7 +208,7 @@ export default function NeraByResturent({navigation}) {
       </View>
     </View>
 
-    <Text style={{fontSize:20,margin:20,fontFamily:'Poppins-Light'}}>Nearby {"\n"}Resturent</Text>
+    <Text style={{fontSize:20,marginVertical:20,marginLeft:10,fontFamily:'Poppins-Light'}}>Nearby {"\n"}Resturent</Text>
 
 
      </View>
@@ -223,6 +224,7 @@ export default function NeraByResturent({navigation}) {
        data={NearByReturent}
        keyExtractor={(item)=>item.id}
        renderItem={renderResturent}
+       
      />
     
      
@@ -233,7 +235,7 @@ export default function NeraByResturent({navigation}) {
     )
 }
 const styles=StyleSheet.create({
-  tags:{marginLeft: 5,marginHorizontal:30,backgroundColor:"#D7D9DB",borderRadius:10,paddingHorizontal:10},
+  tags:{marginLeft: 5,marginHorizontal:30,backgroundColor:COLORS.background,borderRadius:10,paddingHorizontal:10},
   CatContainer:{
       height: 50,
       marginVertical: 20,

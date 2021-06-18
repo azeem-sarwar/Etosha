@@ -17,6 +17,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menue from '../../assesst/Icon/menue.svg';
 import Search from '../../assesst/Icon/search.svg';
+import { COLORS } from '../../constants';
 const CategoryData = [
   {
     id: '1',
@@ -93,6 +94,7 @@ export default function Home({navigation}) {
           margin: 15,
           borderRadius: 30,
           backgroundColor: '#fff',
+          elevation:10
           
         }}
         onPress={()=>navigation.navigate('FoodPage')}
@@ -157,10 +159,10 @@ export default function Home({navigation}) {
 
 
 
-  const rendertags=()=>{
+  const rendertags=({item})=>{
       return(
         <Text appearance="hint" style={styles.tags}>
-        Burger
+        {item.tag}
       </Text>
       )
   }
@@ -175,7 +177,7 @@ export default function Home({navigation}) {
         style={{
           flexDirection: 'row',
           marginTop: 20,
-          marginHorizontal: 20,
+          marginHorizontal: 10,
           justifyContent: 'space-between',
           alignItems: 'center',
          
@@ -218,7 +220,7 @@ export default function Home({navigation}) {
           backgroundColor: '#F6F6F6',
           flexDirection: 'row',
           height: 50,
-          marginHorizontal: 20,
+          marginHorizontal: 10,
           marginTop: 20,
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -239,12 +241,13 @@ export default function Home({navigation}) {
           style={{
             height: 50,
             width: 50,
-            backgroundColor: '#F24F04',
+            backgroundColor: COLORS.primary,
             borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Search />
+     <Icon name="search" size={25} color={COLORS.white} />
+
         </View>
       </TouchableOpacity>
 
@@ -265,7 +268,7 @@ export default function Home({navigation}) {
       <View
         style={{
           flexDirection: 'row',
-          marginHorizontal: 20,
+          marginHorizontal: 10,
           justifyContent: 'space-between',
         }}>
         <Text style={{fontFamily: 'Poppins-Regular'}}>Popular Foods</Text>
@@ -288,7 +291,7 @@ export default function Home({navigation}) {
       <View
         style={{
           flexDirection: 'row',
-          marginHorizontal: 20,
+          marginHorizontal: 10,
          justifyContent:'space-between',          
           
         }}>
@@ -306,7 +309,9 @@ export default function Home({navigation}) {
           margin: 15,
           borderRadius: 30,
           backgroundColor: '#fff',
-          marginBottom:80
+          marginBottom:80,
+          alignSelf:'center',
+          elevation:10
         }}
         onPress={()=>navigation.navigate("ResturentProfile")}
         >
@@ -386,17 +391,18 @@ export default function Home({navigation}) {
   );
 }
 const styles=StyleSheet.create({
-    tags:{marginLeft: 5,marginHorizontal:30,backgroundColor:"#D7D9DB",borderRadius:10,paddingHorizontal:10},
+    tags:{marginLeft: 5,marginHorizontal:30,backgroundColor:COLORS.background,borderRadius:10,paddingHorizontal:10},
     CatContainer:{
         height: 50,
         marginVertical: 20,
-        marginHorizontal: 10,
+        marginHorizontal: 5,
         borderRadius: 50,
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor:'#fff',
         padding:10,
-        width:110
+        width:110,
+        elevation:10
       },CatImgsec:{
         flexDirection: 'row',
         justifyContent: 'center',

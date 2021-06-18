@@ -49,7 +49,9 @@ const TabBarCustomButtonForNormaol = ({ accessibilityState, children, onPress })
    
         return (
      
-          <View style={{ flex: 1, alignItems: "center" }}>
+          <View style={{ flex: 1, alignItems: "center", }}
+          
+          >
           <View style={{ flexDirection: 'row', position: 'absolute', top: 0 }}>
               <View style={{ flex: 1, backgroundColor: "#ffffff" }}></View>
               <Svg
@@ -70,10 +72,11 @@ const TabBarCustomButtonForNormaol = ({ accessibilityState, children, onPress })
                   top: -22.5,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  width: 50,
-                  height: 50,
+                  width: 45,
+                  height: 45,
                   borderRadius: 25,
-                  backgroundColor: COLORS.primary
+                  backgroundColor: COLORS.primary,
+                  
               }}
               onPress={onPress}
           >
@@ -96,8 +99,11 @@ const CustomTabBar = (props) => {
             <View>
                 <View
                     style={{
-                        
-                        height: 30,
+                      position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: 34,
                         backgroundColor: "#fff"
                     }}
                 ></View>
@@ -108,9 +114,27 @@ const CustomTabBar = (props) => {
         )
     } else {
         return (
-            <BottomTabBar
+          <View style={{
+             position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height:73,
+          // SHADOW
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.22,
+          shadowRadius: 2.22,}}>
+          <BottomTabBar
                 {...props.props}
             />
+          
+        </View>
+
+           
         )
     }
 
@@ -121,6 +145,8 @@ const UserTabs = () => {
       <Tab.Navigator
         tabBarOptions={{
           showLabel: false,
+          showIcon: true,
+          
           style: {
             position: 'absolute',
                     left: 0,

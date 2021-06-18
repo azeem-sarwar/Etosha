@@ -29,6 +29,7 @@ const sushi = require("../assets/images/sushi.jpg");
 const teh_c_peng = require("../assets/images/teh-c-peng.jpg");
 const DeliveryBoy = require("../assets/images/deliverBoya.jpg");
 
+
 export default {
     avatar_1,
     avatar_2,

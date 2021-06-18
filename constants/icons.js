@@ -24,8 +24,12 @@ export const star = require("../assets/icons/star.png");
 export const sushi = require("../assets/icons/sushi.png");
 export const user = require("../assets/icons/user.png");
 export const BurgerKing = require('./../assesst/Burgerking.png');
+export const Clock = require('./../assets/icons/Clock.png');
+export const RiderBikeIcon = require('./../assets/icons/riderbikemap.png');
+
 
 export default {
+    RiderBikeIcon,
     BurgerKing,
     back,
     car,
@@ -52,4 +56,5 @@ export default {
     star,
     sushi,
     user,
+    Clock
 }

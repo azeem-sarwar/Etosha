@@ -32,8 +32,7 @@ export default function DrawerNavigation({navigation,route}) {
         borderTopRightRadius: 40,
         borderBottomRightRadius: 40,
         zIndex: 10,
-        height: height - 80,
-      }}
+              }}
       sceneContainerStyle={{flex: 1}}
       drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={UserTabs} />

@@ -426,7 +426,7 @@ export default function ResturentProfile({navigation}) {
 const styles = StyleService.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F9FC',
+    backgroundColor: COLORS.background,
   },
   goBackBtn: {
     height: 40,

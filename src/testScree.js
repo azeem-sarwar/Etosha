@@ -1,43 +1,51 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { BottomNavigation, BottomNavigationTab, Layout, Text } from '@ui-kitten/components';
-import {View }from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, Dimensions } from 'react-native';
+import MapView, { Marker, Circle, Polyline } from 'react-native-maps';
 
-const { Navigator, Screen } = createBottomTabNavigator();
 
-const UsersScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text category='h1'>USERS</Text>
-  </Layout>
-);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
+});
 
-const OrdersScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text category='h1'>ORDERS</Text>
-  </Layout>
-);
 
-const BottomTabBar = ({ navigation, state }) => (
-  <BottomNavigation
-    selectedIndex={state.index}
-    appearance='noIndicator'
-    onSelect={index => navigation.navigate(state.routeNames[index])}>
-    <BottomNavigationTab icon={()=>(<View style={{height:100,width:100,backgroundColor:"#000"}}></View>)} title='USERS'/>
-    <BottomNavigationTab title='ORDERS'/>
-  </BottomNavigation>
-);
+class MapApp extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
 
-const TabNavigator = () => (
-  <Navigator tabBar={props => <BottomTabBar {...props} />}>
-    <Screen name='Users' component={UsersScreen}/>
-    <Screen name='Orders' component={OrdersScreen}/>
-  </Navigator>
-);
+        <MapView style={styles.map}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          <Marker
+            coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+          />
 
-const Test = () => (
-  
-    <TabNavigator/>
-  
-);
-export default Test;
+          <Circle
+            center={{ latitude: 37.78825, longitude: -122.4324 }}
+            radius={1000}
+            strokeWidth={3}
+            strokeColor="green"
+            lineDashPattern={[10]} />
+
+
+        </MapView>
+      </View>
+    );
+  }
+}
+
+export default MapApp;
