@@ -28,6 +28,8 @@ const sarawak_laksa = require("../assets/images/sarawak-laksa.jpg");
 const sushi = require("../assets/images/sushi.jpg");
 const teh_c_peng = require("../assets/images/teh-c-peng.jpg");
 const DeliveryBoy = require("../assets/images/deliverBoya.jpg");
+const DummyProfileImage = require("../assets/images/DummyImage.jpg");
+
 
 
 export default {
@@ -60,5 +62,6 @@ export default {
     sarawak_laksa,
     sushi,
     teh_c_peng,
-    DeliveryBoy
+    DeliveryBoy,
+    DummyProfileImage
 }

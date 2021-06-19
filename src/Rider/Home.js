@@ -14,7 +14,7 @@ import Dots from 'react-native-vector-icons/MaterialCommunityIcons';
 import Menue from '../../assesst/Icon/menue.svg';
 
 import {COLORS, FONTS, fontsFamily, icons, SIZES} from '../../constants';
-import {RiderData} from '../../model/riderData';
+import {RiderData} from '../../model/Data';
 
 export default function Home({navigation}) {
   const [search, setSearch] = React.useState('');
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     elevation: 5,
     marginVertical: 10,
-    shadowColor: "#000",
+    shadowColor: "#F24F04",
 shadowOffset: {
 	width: 0,
 	height: 9,

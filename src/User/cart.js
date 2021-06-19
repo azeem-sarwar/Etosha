@@ -13,7 +13,6 @@ import {Text, Button, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ADDICon from 'react-native-vector-icons/AntDesign';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
 import Search from '../../assesst/Icon/SearchBlack.svg';
 import CartIcon from './../../assesst/Icon/Cart.svg';
 import { COLORS, fontsFamily } from '../../constants';

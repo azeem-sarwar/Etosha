@@ -13,43 +13,68 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Star from 'react-native-vector-icons/AntDesign';
-import Comment from 'react-native-vector-icons/MaterialCommunityIcons';
 import Arrow from '../../assesst/Icon/arrowBack.svg';
-import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import {Directions, } from 'react-native-gesture-handler';
 import { COLORS } from '../../constants';
 
-const width = Dimensions.get('screen').width;
 
-const useFocus = () => {
-  const htmlElRef = React.useRef(null);
-  const setFocus = () => {
-    htmlElRef.current && htmlElRef.current.focus();
-  };
-  return [htmlElRef, setFocus];
-};
 
-export default function Review({navigation}) {
+
+
+export default function UserReview({navigation,route}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
     require('../../assesst/2star.png'),
   );
   const [Rating, setRating] = React.useState(1);
 
-  const [avoidginView, setAviodingView] = React.useState(false);
+React.useEffect(() => {
+  let {rating} = route.params;
+  console.log(rating)
+  switch(rating)
+  {
+    case 1:
+      {setRating(1);
+      SetImagePath(require('../../assesst/2star.png'));}
+      break;
+    case 2:
+      {
+        setRating(2);
+        SetImagePath(require('../../assesst/2star.png'));
+      }
+      break;
+    case 3:
+      {
+        setRating(3);
+        SetImagePath(require('../../assesst/4star.png'));
+      }
+      break;
+    case 4:
+      {
+        setRating(4);
+        SetImagePath(require('../../assesst/4star.png'));
+      }
+      break;
+    case 5:
+      {
+        setRating(5);
+        SetImagePath(require('../../assesst/5star.png'));
+      }
+      break;
+    default:
+      {
+       alert("error" + typeof(rating))
+      }break;
 
-  const [emailRef, setEmailRef] = useFocus();
+  }
+}, [route])
+
 
   return (
-    <KeyboardAvoidingView
+    <View
       behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-      keyboardVerticalOffset={Header.HEIGHT+20}
       style={styles.conTainer}>
-      <ScrollView style={[styles.conTainer,]}>
+     
         <StatusBar />
         <View>
           <View style={styles.header}>
@@ -57,24 +82,39 @@ export default function Review({navigation}) {
               <TouchableOpacity
                 style={styles.MenueBtn}
                 onPress={() => navigation.goBack()}>
-                <Arrow />
+                    <Icon name="chevron-back" size={25} color={COLORS.black} />
               </TouchableOpacity>
-              <Text style={styles.ScreenTitle}>Food Review</Text>
+              <Text style={styles.ScreenTitle}>My Reviews</Text>
             </View>
           </View>
           {/* Search input field */}
         </View>
 
       <View style={{justifyContent:'space-between',height:heightToDp(90)}}>
-          <Text
+         <View>
+         <Text
             style={{
               textAlign: 'center',
               fontSize: 20,
               fontWeight: 'bold',
               fontFamily: 'Poppins-Light',
             }}>
-            How Was {'\n'}The Food Taste?
+            Customer rated{'\n'}Pizza {Rating} stars.
+            
           </Text>
+
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 12,
+              fontFamily: 'Poppins-Light',
+              marginTop:5,
+              width:200,
+              alignSelf:'center'
+            }}>
+            "{route.params.message}"
+          </Text>
+         </View>
           <View>
             <Image source={ImagePath} style={{alignSelf: 'center'}} />
           </View>
@@ -84,100 +124,65 @@ export default function Review({navigation}) {
               justifyContent: 'space-around',
               marginHorizontal: 80,
             }}>
-            <TouchableOpacity
-              onPress={() => {
-                setRating(1);
-                SetImagePath(require('../../assesst/2star.png'));
-              }}>
+            <View>
               <Icon
                 name="star"
                 size={30}
                 color={Rating >= 1 ? '#FFA904' : '#D7D9DB'}
               />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setRating(2);
-                SetImagePath(require('../../assesst/2star.png'));
-              }}>
+            </View>
+            <View>
               <Icon
                 name="star"
                 size={30}
                 color={Rating >= 2 ? '#FFA904' : '#D7D9DB'}
               />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setRating(3);
-                SetImagePath(require('../../assesst/4star.png'));
-              }}>
+            </View>
+            <View>
               <Icon
                 name="star"
                 size={30}
                 color={Rating >= 3 ? '#FFA904' : '#D7D9DB'}
               />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setRating(4);
-                SetImagePath(require('../../assesst/4star.png'));
-              }}>
+            </View>
+            <View>
               <Icon
                 name="star"
                 size={30}
                 color={Rating >= 4 ? '#FFA904' : '#D7D9DB'}
               />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setRating(5);
-                SetImagePath(require('../../assesst/5star.png'));
-              }}>
+            </View>
+            <View>
               <Icon
                 name="star"
                 size={30}
                 color={Rating >= 5 ? '#FFA904' : '#D7D9DB'}
               />
-            </TouchableOpacity>
+            </View>
           </View>
         
       <View>
-      <View style={{flexDirection: 'row', marginLeft: 20, marginTop: 30}}>
-          <Comment name="comment" size={25} color="#000" />
-          <Text>Add a comment</Text>
-        </View>
-
-        <Input
-          value={commentMessage}
-          multiline={true}
-          OnFocus={() => setAviodingView(true)}
-          onBlur={() => setAviodingView(false)}
-          style={{
-            borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
-            marginHorizontal: 20,
-          }}
-          textStyle={{minHeight: 100, borderTopLeftRadius: 20}}
-          onChangeText={text => setComment(text)}
-        />
-        <Button
+      <Button
           style={[
             {
               marginHorizontal: 10,
               height: 50,
               borderRadius: 30,
-              marginTop: 25,
+              
               marginTop: -10,
             },
             styles.shadow,
           ]}
-          onPress={() => navigation.replace('Profile')}>
-          Done
+          onPress={() => navigation.replace("Etosha Reviewe")}>
+          GoBack
         </Button>
+
+     
+       
       </View>
         </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+    
+    </View>
   );
 }
 const styles = StyleSheet.create({
@@ -207,7 +212,7 @@ const styles = StyleSheet.create({
     borderColor: '#D7D9DB',
     borderRadius: 10,
     borderWidth: 1,
-    marginVertical: 17,
+    
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -217,7 +222,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     width: 60,
     height: 54,
-    marginVertical: 2,
+    
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#D7D9DB',

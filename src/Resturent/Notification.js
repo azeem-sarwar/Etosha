@@ -24,7 +24,11 @@ export default function Notification({navigation}) {
     return (
       <TouchableOpacity
         style={styles.Cards}
-         onPress={() => navigation.navigate('Rider Delivery Tracking')}
+          onPress={() =>
+          { 
+            navigation.navigate('MyReview',{rating:5,message:'"Bun was really soft, Enjoyedthe inner chicken piece too"'})
+          
+          }}
       >
         <View style={{flexDirection:'row'}}>
 

@@ -16,7 +16,7 @@ import Dots from 'react-native-vector-icons/MaterialCommunityIcons';
 import Menue from '../../assesst/Icon/menue.svg';
 
 import {COLORS, FONTS, fontsFamily, icons, SIZES} from '../../constants';
-import {RiderData} from '../../model/riderData';
+import {RiderData} from '../../model/Data';
 
 export default function Deliveries({navigation}) {
 

@@ -13,15 +13,11 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Star from 'react-native-vector-icons/AntDesign';
 import Comment from 'react-native-vector-icons/MaterialCommunityIcons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import {Directions, } from 'react-native-gesture-handler';
+import { Header } from '@react-navigation/stack';
 import { COLORS } from '../../constants';
+
 
 const width = Dimensions.get('screen').width;
 
@@ -33,7 +29,7 @@ const useFocus = () => {
   return [htmlElRef, setFocus];
 };
 
-export default function Review({navigation}) {
+export default function EtoshaReviews({navigation}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
     require('../../assesst/2star.png'),
@@ -48,21 +44,23 @@ export default function Review({navigation}) {
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       keyboardVerticalOffset={Header.HEIGHT+20}
-      style={styles.conTainer}>
-      <ScrollView style={[styles.conTainer,]}>
-        <StatusBar />
+      style={[styles.conTainer]}>
+    
+
+
+    <StatusBar />
         <View>
           <View style={styles.header}>
             <View style={styles.headerFlex}>
               <TouchableOpacity
                 style={styles.MenueBtn}
                 onPress={() => navigation.goBack()}>
-                <Arrow />
+                  <Icon name="chevron-back" size={25} color={COLORS.black} />
               </TouchableOpacity>
-              <Text style={styles.ScreenTitle}>Food Review</Text>
+              <Text style={styles.ScreenTitle}>Review</Text>
             </View>
           </View>
-          {/* Search input field */}
+         
         </View>
 
       <View style={{justifyContent:'space-between',height:heightToDp(90)}}>
@@ -73,7 +71,7 @@ export default function Review({navigation}) {
               fontWeight: 'bold',
               fontFamily: 'Poppins-Light',
             }}>
-            How Was {'\n'}The Food Taste?
+            Rate your experience {'\n'}with Etosha.com
           </Text>
           <View>
             <Image source={ImagePath} style={{alignSelf: 'center'}} />
@@ -166,7 +164,7 @@ export default function Review({navigation}) {
               marginHorizontal: 10,
               height: 50,
               borderRadius: 30,
-              marginTop: 25,
+              
               marginTop: -10,
             },
             styles.shadow,
@@ -176,7 +174,7 @@ export default function Review({navigation}) {
         </Button>
       </View>
         </View>
-      </ScrollView>
+
     </KeyboardAvoidingView>
   );
 }
@@ -188,7 +186,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 20,
   },
-  Container: {flex: 1, backgroundColor: '#F7F9FC'},
+  Container: {flex: 1, backgroundColor: COLORS.background},
   headerFlex: {flexDirection: 'row', alignItems: 'center'},
   MenueBtn: {
     height: 40,
@@ -207,7 +205,7 @@ const styles = StyleSheet.create({
     borderColor: '#D7D9DB',
     borderRadius: 10,
     borderWidth: 1,
-    marginVertical: 17,
+    
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

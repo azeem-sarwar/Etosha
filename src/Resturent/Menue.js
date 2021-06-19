@@ -5,25 +5,27 @@ import {
   Image,
   StatusBar,
   FlatList,
-  Dimensions,
   StyleSheet,
 } from 'react-native';
 import {Text, Button, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Cart from './../../assesst/Icon/Cart.svg';
-import {COLORS, fontsFamily, SIZES} from '../../constants';
+import {COLORS, FONTS, fontsFamily, SIZES} from '../../constants';
 import { NearByReturent } from '../../model/Data';
+import Bell from 'react-native-vector-icons/EvilIcons';
 
 
 
-export default function FoodCategory({navigation, route}) {
-  let ScreenName = route.params.CategoryName;
 
-  const renderFoodList = ({item}) => {
+export default function Menu({navigation, route}) {
+
+
+  const renderMenu = ({item}) => {
     return (
       <TouchableOpacity
         style={styles.CardContainer}
-        onPress={() => navigation.navigate('FoodPage')}>
+        // onPress={() => navigation.navigate('FoodPage')}
+        >
         <View>
           <Image source={item.img} style={styles.Cardimg} />
           <View style={styles.cardDetialSection}>
@@ -37,9 +39,10 @@ export default function FoodCategory({navigation, route}) {
         </View>
 
         <View style={{flexShrink: 1}}>
-          <Text style={styles.footTitle}>{item.FoodName}</Text>
+          <Text style={styles.foodTitle}>{item.FoodName}</Text>
           <Text style={styles.descriptionFood} appearance="hint">
-            Fresh Foods
+    
+            {item.foodDescrition}
           </Text>
 
           <View style={styles.reatingSection}>
@@ -76,20 +79,19 @@ export default function FoodCategory({navigation, route}) {
               onPress={() => navigation.goBack()}>
               <Icon name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>{ScreenName}</Text>
+            <Text style={styles.headerTitle}>Menu</Text>
           </View>
           <View style={styles.headerRight}>
-            <TouchableOpacity
-              style={{marginLeft: 10}}
-              onPress={() => navigation.navigate('Search')}>
-              <Icon name="search" color={COLORS.black} size={25} />
-            </TouchableOpacity>
-            <TouchableOpacity style={{marginLeft: 10}}>
-              <Cart />
-              <Text style={styles.cartText}>5</Text>
+          <TouchableOpacity
+              style={{margin: 10}}
+              onPress={() => navigation.navigate('Add Menu')}
+              >
+              <Icon name="add" size={30} color={COLORS.black} />
+              
             </TouchableOpacity>
           </View>
         </View>
+        <Text style={{...FONTS.h2,margin:10}}>Menu</Text>
       </View>
     );
   };
@@ -101,7 +103,7 @@ export default function FoodCategory({navigation, route}) {
         ListHeaderComponent={header}
         data={NearByReturent}
         keyExtractor={item => item.id}
-        renderItem={renderFoodList}
+        renderItem={renderMenu}
         ListFooterComponent={() => (
           <View style={styles.FlatListContainerstyle} />
         )}
@@ -131,25 +133,15 @@ const styles = StyleSheet.create({
     borderColor: '#D7D9DB',
   },
   headerRight: {flexDirection: 'row'},
-  cartText: {
-    fontSize: 10,
-    backgroundColor: COLORS.primary,
-    color: COLORS.white,
-    borderRadius: 50,
-    width: 15,
-    height: 15,
-    textAlign: 'center',
-    position: 'absolute',
-    right: -5,
-    top: -5,
-  },
+
   CardContainer: {
     elevation:10,
     marginHorizontal:10,
     borderRadius: 30,
     backgroundColor: '#fff',
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: 'row',
+    alignItems:'center'
   },
   Cardimg: {height: 170, width: SIZES.width / 2.6, borderRadius: 30},
   cardDetialSection: {
@@ -201,11 +193,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
-  tags: {
-    marginLeft: 5,
-    marginHorizontal: 30,
-    backgroundColor: '#D7D9DB',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-  },
+  
 });
