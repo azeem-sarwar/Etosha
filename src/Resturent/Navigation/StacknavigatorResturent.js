@@ -43,8 +43,8 @@ export default function StackNavigatorReturant({ navigation, route }) {
            <Stack.Screen name="Orders" component={Orders} />
            <Stack.Screen name="Menu" component={Menu} />
            <Stack.Screen name="Add Menu" component={AddMenu} />
-<Stack.Screen name="Etosha Reviewe" component={EtoshaReviews} />
-<Stack.Screen name="Returant State" component={Statistics} />
+            <Stack.Screen name="Etosha Reviewe" component={EtoshaReviews} />
+            <Stack.Screen name="Returant State" component={Statistics} />
 
 
        </Stack.Navigator>

@@ -204,7 +204,20 @@ export default function Login({navigation}) {
               borderRadius: 20,
               fontWeight: 'normal',
             }}
-            onPress={()=>navigation.navigate("UserTab")}
+            onPress={()=>{
+              if(email=="user")
+              {
+                navigation.navigate("UserTab")
+              }
+              else if(email="rider")
+              {
+                navigation.navigate("DrawerRider")
+              }
+              if(email="resturant")
+              {
+                navigation.navigate("DrawerResturant")
+              }
+            }}
             
             >
             <Text style={{...fontsFamily.Light,color:COLORS.white}}>Login</Text>

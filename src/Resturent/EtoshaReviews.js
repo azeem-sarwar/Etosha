@@ -43,10 +43,8 @@ export default function EtoshaReviews({navigation}) {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-      keyboardVerticalOffset={Header.HEIGHT+20}
+      // keyboardVerticalOffset={Header.HEIGHT+20}
       style={[styles.conTainer]}>
-    
-
 
     <StatusBar />
         <View>
@@ -155,7 +153,7 @@ export default function EtoshaReviews({navigation}) {
             borderTopRightRadius: 30,
             marginHorizontal: 20,
           }}
-          textStyle={{minHeight: 100, borderTopLeftRadius: 20}}
+          textStyle={{minHeight:100, borderTopLeftRadius: 20}}
           onChangeText={text => setComment(text)}
         />
         <Button
@@ -169,7 +167,7 @@ export default function EtoshaReviews({navigation}) {
             },
             styles.shadow,
           ]}
-          onPress={() => navigation.replace('Profile')}>
+          onPress={() => navigation.goBack()}>
           Done
         </Button>
       </View>
