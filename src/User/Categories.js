@@ -12,52 +12,16 @@ import {
   Text,
   Layout
 } from '@ui-kitten/components';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import Cart from './../../assesst/Icon/Cart.svg'
+
+import CartIcon from './../../assets/SVg/CartIcon';
+import Icon from 'react-native-vector-icons/Ionicons'
+import {CategoryData} from '../../model/CategoryDate'
+
 import { COLORS } from '../../constants';
 const width = Dimensions.get('screen').width;
 
 
 
-const NearByReturent = [
-  {
-    id: '1',
-    CatName: 'Burger',
-    img: require('./../../assesst/categoryIcon/Burger.png'),
-  },
-  {
-    id: '2',
-    CatName: 'Ice Cream',
-    img: require('./../../assesst/categoryIcon/IceCream.png'),
-
-  },
-  {
-    id: '3',
-    CatName: 'Dessert',
-    img: require('./../../assesst/categoryIcon/Juice.png'),
-
-  },
-  {
-    id: '4',
-    CatName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-  },
-  {
-    id: '5',
-    CatName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-  },
-  {
-    id: '6',
-    CatName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-  
-
-  },
-];
 
 
 
@@ -122,7 +86,7 @@ export default function Categories({navigation,route}) {
           onPress={()=>navigation.goBack()}
           
           >
-          <Arrow />
+                         <Icon name="chevron-back" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={{marginLeft: 5,fontFamily:'Poppins-Light'}}>
          
@@ -134,11 +98,11 @@ export default function Categories({navigation,route}) {
       <TouchableOpacity style={{marginLeft:10}}
       onPress={()=>navigation.goBack()}
       >
-      <Search  />
+      <Icon name="search" size={25} color={COLORS.black} />
       </TouchableOpacity>
       <TouchableOpacity style={{marginLeft:10}}>
 
-      <Cart />
+      <CartIcon />
       <Text style={{fontSize:10,backgroundColor:COLORS.primary,color:COLORS.white,borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
       </TouchableOpacity>
       
@@ -158,7 +122,7 @@ export default function Categories({navigation,route}) {
     
     <FlatList 
      ListHeaderComponent={header}
-       data={NearByReturent}
+       data={CategoryData}
        keyExtractor={(item)=>item.id}
        renderItem={renderResturent}
        

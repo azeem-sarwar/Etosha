@@ -19,95 +19,14 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import { fontsFamily } from '../../constants';
+import {NearByReturent} from '../../model/ResturantDishData'
+import { COLORS, fontsFamily, SIZES } from '../../constants';
+import StarIcon from '../../assets/SVg/Star';
 
-const width = Dimensions.get('screen').width;
+import ClockIcon from '../../assets/SVg/Clock';
 
-const NearByReturent = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
 
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
 
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '4',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '5',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '6',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-];
 
 export default function Profile({navigation}) {
   const [index, setIndex] = React.useState(1);
@@ -118,7 +37,7 @@ export default function Profile({navigation}) {
         style={styles.renderFoodCard}
         onPress={() => navigation.navigate('FoodPage')}>
         <Image
-          source={require('./../../assesst/dish.jpg')}
+          source={require('./../../assets/DummyImages/dish.jpg')}
           style={styles.renderFoodCardImage}
         />
         <View
@@ -146,17 +65,15 @@ export default function Profile({navigation}) {
           </Text>
 
           <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={styles.ImageIcon}
-            />
+           <View style={styles.ImageIcon}>
+             <StarIcon />
+           </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               4.6
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={styles.ImageIcon }
-            />
+            <View style={styles.ImageIcon}>
+             <ClockIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               30 Min
             </Text>
@@ -174,7 +91,7 @@ export default function Profile({navigation}) {
         <TouchableOpacity
           style={styles.MenueBtn}
           onPress={() => navigation.goBack()}>
-          <Arrow />
+          <Icon name="chevron-back" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={styles.ScreenTitle}>
           Profile
@@ -185,7 +102,7 @@ export default function Profile({navigation}) {
 
     <View style={{margin: 20, alignItems: 'center'}}>
       <Avatar
-        source={require('./../../assesst/48061.png')}
+        source={require('./../../assets/DummyImages/profilePic.png')}
         style={styles.ProfileImage}
       />
       <Text
@@ -269,7 +186,7 @@ const styles = StyleSheet.create({
       ScreenTitle:{marginLeft: 5, fontFamily: 'Poppins-Light'},
 renderFoodCard:{
     paddingBottom: 10,
-    width: width / 2.25,
+    width: SIZES.width / 2.25,
     marginTop: 10,
     marginHorizontal: 10,
     borderRadius: 30,
@@ -302,7 +219,7 @@ renderFoodCard:{
     marginVertical: 5,
     marginHorizontal: 20,
   },
-  renderFoodCardImage:{height: 150, width: width / 2.25, borderRadius: 30},
+  renderFoodCardImage:{height: 150, width: SIZES.width / 2.25, borderRadius: 30},
   heartIcon:{
     position: 'absolute',
     top: 10,

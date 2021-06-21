@@ -11,12 +11,14 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Radio, RadioGroup, Input} from '@ui-kitten/components';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import CartIcon from './../../assesst/Icon/Cart.svg';
-import CardSVG from '../Component/Card';
+import Icon from 'react-native-vector-icons/Ionicons'
 
-const width = Dimensions.get('screen').width;
+
+import CartIcon from './../../assets/SVg/CartIcon'
+import CardSVG from '../Component/Card';
+import { COLORS } from '../../constants';
+
+ 
 
 
 
@@ -54,7 +56,8 @@ const [expiryDate,setExpiryDate] = React.useState('')
                 borderColor: '#D7D9DB',
               }}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+                <Icon name="chevron-back" size={25} color={COLORS.black} />
+
             </TouchableOpacity>
             <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light'}}>
               My Card
@@ -64,7 +67,8 @@ const [expiryDate,setExpiryDate] = React.useState('')
             <TouchableOpacity
               style={{marginLeft: 10}}
               onPress={() => navigation.navigate('Search')}>
-              <Search />
+      <Icon name="search" size={25} color={COLORS.black} />
+
             </TouchableOpacity>
             <TouchableOpacity style={{marginLeft: 10}}>
               <CartIcon />
@@ -79,6 +83,7 @@ const [expiryDate,setExpiryDate] = React.useState('')
                   position: 'absolute',
                   right: -5,
                   top: -5,
+                  color:COLORS.white
                 }}>
                 5
               </Text>

@@ -11,11 +11,11 @@ import {
 import {Text, Button, Avatar, Layout, List} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Bell from 'react-native-vector-icons/EvilIcons';
-import Menue from '../../assesst/Icon/menue.svg';
+import Menue from '../../assets/SVg/MenuIcon';
 
 import {COLORS, FONTS, fontsFamily, icons, SIZES} from '../../constants';
 import {OrderDataResturant} from '../../model/Data';
-import { color } from 'react-native-reanimated';
+
 
 export default function Home({navigation}) {
   const [search, setSearch] = React.useState('');

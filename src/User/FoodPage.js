@@ -5,7 +5,7 @@ import {
   Image,
   StatusBar,
   Dimensions,
-  StyleSheet,
+
   ScrollView
 } from 'react-native';
 import {
@@ -13,34 +13,21 @@ import {
   Button,
   Layout,
   List,
-  Input,
+ 
   Card,
   StyleService,
   Avatar,
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
 
-import Cart from './../../assesst/Icon/Cart.svg';
-import { FlatList } from 'react-native-gesture-handler';
+
 import { heightToDp, widthToDp } from '../../Utils/Responsive';
-const width = Dimensions.get('screen').width;
+import { COLORS, FONTS } from '../../constants';
+import StarIcon from '../../assets/SVg/Star';
+import {Ingradientsdata} from '../../model/Ingradientsdata'
 
 
-const data=[{
-    id:'1',
-    name:'Green peas',
-    img:require('../../assesst/GreenPees.png')
-},{
-    id:'2',
-    name:'Green peas',
-    img:require('../../assesst/GreenPees.png')
-},{
-    id:'3',
-    name:'Green peas',
-    img:require('../../assesst/GreenPees.png')
-}]
+
 
 export default function FoodPage({navigation}) {
 
@@ -57,14 +44,14 @@ export default function FoodPage({navigation}) {
     <ScrollView styles={styles.container}>
       <StatusBar />
       <Image
-        source={require('../../assesst/dish.jpg')}
+        source={require('../../assets/DummyImages/dish.jpg')}
         style={{height: 200, width: '100%'}}
       />
 
       <TouchableOpacity
         style={styles.goBackBtn}
         onPress={() => navigation.goBack()}>
-        <Arrow />
+        <Icon name="chevron-back" size={25} color={COLORS.black} />
       </TouchableOpacity>
 
       <Layout
@@ -86,22 +73,23 @@ export default function FoodPage({navigation}) {
           <Avatar
             style={{left: 10}}
             size="tiny"
-            source={require('../../assesst/profilePic.png')}
+            source={require('../../assets/DummyImages/profilePic.png')}
           />
           <Avatar
             style={{left: 5}}
             size="tiny"
-            source={require('../../assesst/popularFood.png')}
+            source={require('../../assets/DummyImages/dish.jpg')}
           />
           <Avatar
             style={{}}
             size="tiny"
-            source={require('../../assesst/profilePic.png')}
+            source={require('../../assets/DummyImages/profilePic.png')}
           />
-          <Image
-            style={{marginLeft: 10}}
-            source={require('../../assesst/Icon/Star.png')}
-          />
+          <View style={{marginLeft: 10}}>
+            <StarIcon />
+          </View>
+
+          
           <Text>4.9</Text>
         </Layout>
 
@@ -200,9 +188,17 @@ export default function FoodPage({navigation}) {
 
 
         <View style={{flexDirection:'row',marginHorizontal:20,justifyContent:'space-between',marginVertical:20}}>
-        <Button style={{borderColor:'#D7D9DB'}} status="success">Small</Button>
-        <Button style={{borderColor:'#D7D9DB'}} >Medium</Button>
-        <Button style={{borderColor:'#D7D9DB'}} status="success">Large</Button>
+        <Button style={{borderColor:'#D7D9DB'}} status="info">
+          <Text style={{...FONTS.body4}}>Small</Text>
+        </Button>
+        <Button style={{borderColor:'#D7D9DB'}} >
+          <Text style={{...FONTS.body4,color:COLORS.white}}>
+          Medium
+          </Text>
+        </Button>
+        <Button style={{borderColor:'#D7D9DB'}} status="info">
+          <Text style={{...FONTS.body4}}>Large</Text>
+        </Button>
 
         
         </View>
@@ -219,7 +215,7 @@ export default function FoodPage({navigation}) {
 
         
 <List 
-       data={data}
+       data={Ingradientsdata}
        keyExtractor={(item)=>item.id}
        renderItem={rederIngradients}
        horizontal

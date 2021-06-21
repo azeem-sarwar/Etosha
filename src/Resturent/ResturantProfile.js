@@ -19,7 +19,6 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
 import { COLORS, fontsFamily, SIZES } from '../../constants';
 
 export default function RiderProfile({navigation}) {

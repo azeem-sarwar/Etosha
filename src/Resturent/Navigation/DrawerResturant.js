@@ -8,12 +8,11 @@ import {DrawerContent} from './DrawerContent';
 import 'react-native-gesture-handler';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
-import { SIZES } from '../../../constants';
+
 import StackNavigatorReturant from './StacknavigatorResturent';
 
 
 
-const height = Dimensions.get('screen').height;
 
 export default function DrawerResturant({navigation,route}) {
   const Drawer = createDrawerNavigator();

@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import {Text, Button, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Cart from './../../assesst/Icon/Cart.svg';
+
 import {COLORS, FONTS, fontsFamily, SIZES} from '../../constants';
 import { NearByReturent } from '../../model/Data';
-import Bell from 'react-native-vector-icons/EvilIcons';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
+
 
 
 
@@ -46,17 +48,15 @@ export default function Menu({navigation, route}) {
           </Text>
 
           <View style={styles.reatingSection}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={styles.RatingsectionImg}
-            />
+            <View style={styles.RatingsectionImg}>
+              <StarIcon />
+            </View>
             <Text appearance="hint" style={styles.ratingSectionTxt}>
               {item.Rating}
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={styles.RatingsectionImg}
-            />
+            <View style={styles.RatingsectionImg}>
+              <ClockIcon />
+            </View>
             <Text appearance="hint" style={styles.ratingSectionTxt}>
               {item.Time}
             </Text>

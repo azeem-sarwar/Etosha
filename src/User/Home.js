@@ -15,55 +15,15 @@ import {
   Avatar
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Menue from '../../assesst/Icon/menue.svg';
-import Search from '../../assesst/Icon/search.svg';
+import Menue from '../../assets/SVg/MenuIcon';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
+import {CategoryData,PopularFoods} from '../../model/Data'
+
+
+
 import { COLORS } from '../../constants';
-const CategoryData = [
-  {
-    id: '1',
-    CatName: 'Food',
-    img: require('./../../assesst/categoryIcon/Burger.png'),
-  },
-  {
-    id: '2',
-    CatName: 'Juice',
-    img: require('./../../assesst/categoryIcon/Juice.png'),
-  },
-  {
-    id: '3',
-    CatName: 'Dessert',
-    img: require('./../../assesst/categoryIcon/IceCream.png'),
-  },
-];
 
-const PopularFoods = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-  },
-];
 const width = Dimensions.get('screen').width;
 
 export default function Home({navigation}) {
@@ -137,17 +97,15 @@ export default function Home({navigation}) {
             $ {item.price}
           </Text>
           <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
+            <StarIcon
+              style={{ marginLeft: 10}}
             />
             <Text appearance="hint" style={{marginLeft: 5}}>
               {item.Rating}
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View   style={{marginLeft: 10}}>
+            <ClockIcon/>
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               {item.Time}
             </Text>
@@ -207,7 +165,7 @@ export default function Home({navigation}) {
         >
         <Avatar
         onPress={()=>{alert("ok")}}
-          source={require('../../assesst/profilePic.png')}
+          source={require('../../assets/DummyImages/profilePic.png')}
           style={{height: 40, width: 40, borderRadius: 10}}
         />
         </TouchableOpacity>
@@ -317,7 +275,7 @@ export default function Home({navigation}) {
         >
         
           <Image
-            source={require('./../../assesst/dish.jpg')}
+            source={require('./../../assets/DummyImages/dish.jpg')}
             style={{height: 200, width: width - 20, borderRadius: 30}}
           />
           <View
@@ -355,17 +313,15 @@ export default function Home({navigation}) {
           </Text>
           
           <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
+            <StarIcon
+              style={{marginLeft: 10}}
             />
             <Text appearance="hint" style={{marginLeft: 5}}>
               4.6
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{ marginLeft: 15}}>
+            <ClockIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               30 Min
             </Text>

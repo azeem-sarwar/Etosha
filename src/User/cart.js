@@ -12,96 +12,14 @@ import {
 import {Text, Button, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ADDICon from 'react-native-vector-icons/AntDesign';
-
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import CartIcon from './../../assesst/Icon/Cart.svg';
+import CartIcon from './../../assets/SVg/CartIcon';
 import { COLORS, fontsFamily } from '../../constants';
+import {NearByReturent} from '../../model/ResturantDishData'
+
+
 const width = Dimensions.get('screen').width;
 
-const NearByReturent = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
 
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '4',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '5',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-  {
-    id: '6',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 20.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags: [
-      {id: '1', tag: 'Foods'},
-      {id: '2', tag: 'Buger'},
-      {id: '3', tag: 'Pizza'},
-    ],
-  },
-];
 
 export default function Cart({navigation, route}) {
   const renderResturent = ({item}) => {
@@ -242,7 +160,7 @@ export default function Cart({navigation, route}) {
             <TouchableOpacity
               style={{marginLeft: 10}}
               onPress={() => navigation.navigate('Search')}>
-              <Search />
+              <Icon name="search" color={COLORS.black} size={25} />
             </TouchableOpacity>
             <TouchableOpacity style={{marginLeft: 10}}>
               <CartIcon />

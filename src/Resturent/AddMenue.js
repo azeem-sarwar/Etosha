@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TextInput,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  ScrollView
 } from 'react-native';
 import {
   Text,
@@ -21,13 +22,13 @@ import Clock from 'react-native-vector-icons/Fontisto';
 import PhotoIcon from 'react-native-vector-icons/FontAwesome';
 
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
+
 import {Header} from '@react-navigation/stack';
 
 import { widthToDp } from '../../Utils/Responsive';
 
 import { COLORS, images, SIZES } from '../../constants';
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 import DollarSvg from '../Component/DollarSvg'
 import FoodSvg from '../Component/FoodSVG'
@@ -155,7 +156,7 @@ const [foodPriceRef, setFoodPriceRef] = useFocus();
             <TouchableOpacity
               style={styles.MenueBtn}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+              <Icon name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
             <Text style={styles.ScreenTitle}>Add Menu</Text>
           </View>

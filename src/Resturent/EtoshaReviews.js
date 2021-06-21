@@ -15,11 +15,10 @@ import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Comment from 'react-native-vector-icons/MaterialCommunityIcons';
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import { Header } from '@react-navigation/stack';
+
 import { COLORS } from '../../constants';
 
 
-const width = Dimensions.get('screen').width;
 
 const useFocus = () => {
   const htmlElRef = React.useRef(null);
@@ -32,13 +31,12 @@ const useFocus = () => {
 export default function EtoshaReviews({navigation}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
-    require('../../assesst/2star.png'),
+    require('../../assets/DummyImages/2star.png'),
   );
   const [Rating, setRating] = React.useState(1);
 
   const [avoidginView, setAviodingView] = React.useState(false);
 
-  const [emailRef, setEmailRef] = useFocus();
 
   return (
     <KeyboardAvoidingView
@@ -83,7 +81,7 @@ export default function EtoshaReviews({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(1);
-                SetImagePath(require('../../assesst/2star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"
@@ -94,7 +92,7 @@ export default function EtoshaReviews({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(2);
-                SetImagePath(require('../../assesst/2star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"
@@ -105,7 +103,7 @@ export default function EtoshaReviews({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(3);
-                SetImagePath(require('../../assesst/4star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"
@@ -116,7 +114,7 @@ export default function EtoshaReviews({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(4);
-                SetImagePath(require('../../assesst/4star.png'));
+                SetImagePath(require('../../assets/DummyImages/4star.png'));
               }}>
               <Icon
                 name="star"
@@ -127,7 +125,7 @@ export default function EtoshaReviews({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(5);
-                SetImagePath(require('../../assesst/5star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"

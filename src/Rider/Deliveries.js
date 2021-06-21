@@ -9,11 +9,11 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import {Text, Button, Avatar, Layout, List} from '@ui-kitten/components';
+import {Text, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Bell from 'react-native-vector-icons/EvilIcons';
 import Dots from 'react-native-vector-icons/MaterialCommunityIcons';
-import Menue from '../../assesst/Icon/menue.svg';
+
 
 import {COLORS, FONTS, fontsFamily, icons, SIZES} from '../../constants';
 import {RiderData} from '../../model/Data';

@@ -1,14 +1,19 @@
 import React from 'react';
 
 
-import BottomLeftHand from './../../assesst/Svg/bottomLeftHand.svg';
-import BottomRightHand from '../../assesst/Svg/bottomRightHand.svg';
-import TopRightHand from '../../assesst/Svg/rightTopHand.svg';
-import TopLefthand from '../../assesst/Svg/leftTopHand.svg';
 
-import Burger from '../../assesst/Svg/burger.svg';
-import JuiceGlass from '../../assesst/Svg/juiceGlass.svg';
-import Pizza from '../../assesst/Svg/Pizza.svg';
+
+
+
+import LeftTopHand from '../../assets/SVg/LeftTopHand'
+import RightTopHand from '../../assets/SVg/RightTopHand'
+import Burger from '../../assets/SVg/Burger'
+
+import Pizza from '../../assets/SVg/Pizza'
+import BottomRightHand from '../../assets/SVg/BottomRightHand'
+import BottomLeftHand from '../../assets/SVg/BottomLeftHand'
+import JuiceGlass from '../../assets/SVg/JuiceIcon'
+
 import {
   Text,
   Button,
@@ -239,17 +244,19 @@ const OnBoarding = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-        <TopLefthand
+        <LeftTopHand
           width={widthToDp(50)}
           height={heightToDp(25)}
           style={styles.TopLeftHand}
         />
-        <TopRightHand
+        <RightTopHand
           width={widthToDp(25)}
           height={heightToDp(25)}
           style={styles.TopRightHand}
         />
-        <Burger style={styles.pizza} />
+        <Burger style={styles.pizza}
+        width={widthToDp(50)} height={heightToDp(30)}
+         />
         <Pizza
           width={widthToDp(50)}
           height={heightToDp(30)}
@@ -318,7 +325,9 @@ const OnBoarding = ({navigation}) => {
           style={styles.bottomLefthandIcon}
         />
         <JuiceGlass style={styles.Juices} />
-        <Burger style={styles.BurgerBottom} />
+        <Burger style={styles.BurgerBottom} 
+        width={widthToDp(50)} height={heightToDp(30)}
+        />
                 
         </SafeAreaView>
     );

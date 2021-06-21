@@ -11,27 +11,15 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, StyleService} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CartIcon from './../../assets/SVg/CartIcon';
+import {FoodOffers} from '../../model/FoodOffers'
 
-import CartIcon from './../../assesst/Icon/Cart.svg';
 
 import {COLORS, FONTS, fontsFamily, SIZES} from '../../constants';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
 
 
-
-const FoodOffers = [
-  {
-    id: '1',
-    title: 'Italian Large Pizza',
-    img: require('./../../assesst/foodOfferPizz.png'),
-    percentage:"35"
-  },
-  {
-    id: '2',
-    title: 'Food Package Offer',
-    img: require('./../../assesst/FoodOfferDish.png'),
-    percentage:"23"
-  },
-];
 
 export default function FoodOffer({navigation}) {
   
@@ -186,7 +174,7 @@ export default function FoodOffer({navigation}) {
         <View
           style={styles.nearBycard}>
           <Image
-            source={require('./../../assesst/dish.jpg')}
+            source={require('./../../assets/DummyImages/dish.jpg')}
             style={styles.nearbyCardFoodImage}
           />
           <View
@@ -208,17 +196,17 @@ export default function FoodOffer({navigation}) {
             </Text>
 
             <View style={{flexDirection: 'row'}}>
-              <Image
-                source={require('../../assesst/Icon/Star.png')}
-                style={{height: 20, width: 20, marginLeft: 10}}
-              />
+            <View
+             style={{height: 20, width: 20, marginLeft: 10}}>
+              <StarIcon />
+            </View>
+              
               <Text appearance="hint" style={{marginLeft: 5}}>
                 4.6
               </Text>
-              <Image
-                source={require('../../assesst/Icon/Clock.png')}
-                style={{height: 20, width: 20, marginLeft: 10}}
-              />
+              <View  style={{height: 20, width: 20, marginLeft: 10}}>
+                <ClockIcon />
+              </View>
               <Text appearance="hint" style={{marginLeft: 5}}>
                 30 Min
               </Text>

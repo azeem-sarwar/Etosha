@@ -13,11 +13,13 @@ import {Text, Button, Layout, Radio, RadioGroup} from '@ui-kitten/components';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import CartIcon from './../../assesst/Icon/Cart.svg';
-import CrditCard from './../../assesst/Icon/CreditCard.svg'
-import Paypal from './../../assesst/Icon/PayPal.svg'
+import Iconion from 'react-native-vector-icons/Ionicons';
+
+
+import CartIcon from './../../assets/SVg/CartIcon';
+import CrditCard from './../../assets/SVg/creditCard'
+import Paypal from './../../assets/SVg/Paypal'
+import { COLORS } from '../../constants';
 
 const width = Dimensions.get('screen').width;
 
@@ -119,7 +121,7 @@ export default function CheckOut({navigation, route}) {
                 borderColor: '#D7D9DB',
               }}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+               <Iconion name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
             <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light'}}>
               CheckOut
@@ -129,7 +131,7 @@ export default function CheckOut({navigation, route}) {
             <TouchableOpacity
               style={{marginLeft: 10}}
               onPress={() => navigation.navigate('Search')}>
-              <Search />
+              <Iconion name="search" size={25} color={COLORS.black} />
             </TouchableOpacity>
             <TouchableOpacity style={{marginLeft: 10}}>
               <CartIcon />
@@ -177,14 +179,25 @@ export default function CheckOut({navigation, route}) {
 
       <TouchableOpacity style={{marginLeft:20,flexDirection:'row',justifyContent:'space-between',marginVertical:15,alignItems:'center',marginHorizontal:20}}>
          <View style={{flexDirection:'row',alignItems:'center'}}>
-         <CrditCard height={30} width={30} style={{marginRight:20,borderRadius:10,borderWidth:0.5,padding:20}} />
+         <View
+         style={{marginRight:20,borderRadius:10,borderWidth:0.5,padding:3,borderColor:COLORS.lightGray}}
+         >
+         <CrditCard height={30} width={30}  />
+
+         </View>
           <Text style={{fontSize:18}}>Credit Card</Text>
          </View>
           <Radio  />
       </TouchableOpacity>
       <TouchableOpacity style={{marginLeft:20,flexDirection:'row',justifyContent:'space-between',marginHorizontal:20}}>
          <View style={{flexDirection:'row',alignItems:'center'}}>
-         <Paypal style={{marginRight:20,borderRadius:10,borderWidth:0.5,padding:20}} />
+<View
+         style={{marginRight:20,borderRadius:10,borderWidth:0.5,padding:3,borderColor:COLORS.lightGray}}
+
+>
+<Paypal  />
+
+</View>
           <Text style={{fontSize:18}}>Paypal</Text>
          </View>
           <Radio  />

@@ -50,7 +50,7 @@ export function DrawerContent(props) {
                 alignItems: 'center',
               }}>
               <Avatar
-                source={require('../../assesst/profilePic.png')}
+                source={require('../../assets/DummyImages/profilePic.png')}
                 style={{height: 60, width: 60, borderRadius: 10}}
               />
               <View style={{marginLeft: 10}}>

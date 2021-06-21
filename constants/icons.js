@@ -23,7 +23,8 @@ export const basket = require("../assets/icons/shopping-basket.png");
 export const star = require("../assets/icons/star.png");
 export const sushi = require("../assets/icons/sushi.png");
 export const user = require("../assets/icons/user.png");
-export const BurgerKing = require('./../assesst/Burgerking.png');
+
+export const BurgerKing = require('./../assets/DummyImages/Burgerking.png');
 export const Clock = require('./../assets/icons/Clock.png');
 export const RiderBikeIcon = require('./../assets/icons/riderbikemap.png');
 

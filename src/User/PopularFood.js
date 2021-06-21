@@ -15,77 +15,12 @@ import {
   Layout
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import Cart from './../../assesst/Icon/Cart.svg'
-const width = Dimensions.get('screen').width;
+import Cart from './../../assets/SVg/CartIcon'
 
-
-
-const NearByReturent = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '4',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-  },
-  {
-    id: '5',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '6',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-];
+import {NearByReturent} from '../../model/ResturantDishData'
+import { COLORS, SIZES } from '../../constants';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
 
 
 
@@ -101,7 +36,7 @@ export default function PopularFood({navigation}) {
       <TouchableOpacity
       style={{
         height: 230, 
-        width: width/2.25,
+        width: SIZES.width/2.25,
         marginTop:40,
         marginHorizontal:10,
         borderRadius: 30,
@@ -121,8 +56,8 @@ export default function PopularFood({navigation}) {
       >
       
         <Image
-          source={require('./../../assesst/dish.jpg')}
-          style={{height: 150, width: width/2.25, borderRadius: 30}}
+          source={require('./../../assets/DummyImages/dish.jpg')}
+          style={{height: 150, width: SIZES.width/2.25, borderRadius: 30}}
         />
         <View
           style={{
@@ -151,17 +86,15 @@ export default function PopularFood({navigation}) {
         </Text>
         
         <View style={{flexDirection: 'row'}}>
-          <Image
-            source={require('../../assesst/Icon/Star.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-          />
+          <View style={{ marginLeft: 10}}>
+            <StarIcon />
+          </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             4.6
           </Text>
-          <Image
-            source={require('../../assesst/Icon/Clock.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-          />
+          <View style={{ marginLeft: 10}}>
+            <ClockIcon />
+          </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             30 Min
           </Text>
@@ -199,7 +132,7 @@ export default function PopularFood({navigation}) {
           onPress={()=>navigation.goBack()}
           
           >
-          <Arrow />
+          <Icon name="chevron-back" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={{marginLeft: 5,fontFamily:'Poppins-Light'}}>
           {' '}
@@ -211,14 +144,14 @@ export default function PopularFood({navigation}) {
       <TouchableOpacity style={{marginLeft:10}}
       onPress={()=>navigation.navigate("Search")}
       >
-      <Search  />
+      <Icon name="search" size={25} color={COLORS.black} />
       </TouchableOpacity>
       <TouchableOpacity style={{marginLeft:10}}
       onPress={()=>navigation.navigate("Cart")}
       >
 
       <Cart />
-      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
+      <Text style={{fontSize:10,backgroundColor:'#F24F04',borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5,color:COLORS.white}}>5</Text>
       </TouchableOpacity>
       
       </View>

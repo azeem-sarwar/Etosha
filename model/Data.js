@@ -235,3 +235,97 @@ export const NearByReturent = [
     },
   ];
   
+
+
+  export const CategoryData = [
+    {
+      id: '1',
+      CatName: 'Food',
+      img: require('../assets/categoryIcon/Burger.png'),
+    },
+    {
+      id: '2',
+      CatName: 'Juice',
+      img: require('../assets/categoryIcon/Juice.png'),
+    },
+    {
+      id: '3',
+      CatName: 'Dessert',
+      img: require('../assets/categoryIcon/IceCream.png'),
+    },
+  ];
+  
+  export const PopularFoods = [
+    {
+      id: '1',
+      FoodName: 'Shrimps and Arugula',
+      img: require('../assets/DummyImages/dish.jpg'),
+      price: 200.0,
+      Rating: 4.9,
+      Time: '20 min',
+    },
+    {
+      id: '2',
+      FoodName: 'Shrimps and Arugula',
+      img: require('../assets/DummyImages/popularFood.png'),
+  
+      price: 200.0,
+      Rating: 4.9,
+      Time: '20 min',
+    },
+    {
+      id: '3',
+      FoodName: 'Shrimps and Arugula',
+      img: require('../assets/DummyImages/popularFood.png'),
+  
+      price: 200.0,
+      Rating: 4.9,
+      Time: '20 min',
+    },
+  ];
+
+
+ export const MyOrderDatadata = [
+    {
+      id: '#2145',
+      FoodName: 'Whipping cream',
+      img: require('../assets/food/icecream.jpg'),
+      ResturentLogo: require('../assets/DummyImages/Burgerking.png'),
+      price: 3.99,
+      totlatItems: 5,
+      Time: '20 min',
+      status: 'done',
+    },
+  
+    {
+      id: '#2149',
+      FoodName: 'Stir-Fried Spicy',
+      img: require('../assets/food/dishfood.jpg'),
+      ResturentLogo: require('../assets/DummyImages/Burgerking.png'),
+      price: 9.99,
+      totlatItems: 2,
+      Time: '15 min',
+      status: 'done',
+    },
+    {
+      id: '#2146',
+      FoodName: 'Burger',
+      img: require('../assets/food/burgerCat.jpg'),
+      ResturentLogo: require('../assets/DummyImages/Burgerking.png'),
+      price: 200.0,
+      totlatItems: 5,
+      Time: '20 min',
+      status: 'pending',
+    },
+    {
+      id: '#2144',
+      FoodName: 'Rice',
+      img: require('../assets/food/rice.jpg'),
+      ResturentLogo: require('../assets/DummyImages/Burgerking.png'),
+      price: 200.0,
+      totlatItems: 5,
+      Time: '20 min',
+      status: 'pending',
+    },
+  ];
+  

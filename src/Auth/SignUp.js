@@ -10,23 +10,24 @@ import {
   Text,
   Toggle,
 } from '@ui-kitten/components';
-import FoofDeliverIcon from '../../assesst/Svg/CenterSvgIcon.svg';
-import BottomLeftHand from '../../assesst/Svg/bottomLeftHand.svg';
-import BottomRightHand from '../../assesst/Svg/bottomRightHand.svg';
-import TopRightHand from '../../assesst/Svg/rightTopHand.svg';
-import TopLefthand from '../../assesst/Svg/leftTopHand.svg';
-import Etosha from '../../assesst/Svg/etosha.svg';
-import Burger from '../../assesst/Svg/burger.svg';
-import JuiceGlass from '../../assesst/Svg/juiceGlass.svg';
-import Pizza from '../../assesst/Svg/Pizza.svg';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import Lock from '../../assesst/Icon/lock.svg';
-import Person from '../../assesst/Icon/person.svg';
+import LeftTopHand from '../../assets/SVg/LeftTopHand'
+import RightTopHand from '../../assets/SVg/RightTopHand'
+import Burger from '../../assets/SVg/Burger'
+
+import Pizza from '../../assets/SVg/Pizza'
+import BottomRightHand from '../../assets/SVg/BottomRightHand'
+import BottomLeftHand from '../../assets/SVg/BottomLeftHand'
+import JuiceGlass from '../../assets/SVg/JuiceIcon'
+import Etosha from '../../assets/SVg/EtoshaIcon'
+
+import EmailSvg from '../../assets/SVg/EmailIcon';
+import Lock from '../../assets/SVg/LockIcon';
+import Person from '../../assets/SVg/Person';
 
 
-import {BlurView} from '@react-native-community/blur';
+
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import {TextInput} from 'react-native-gesture-handler';
+import {TextInput} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { fontsFamily } from '../../constants';
@@ -77,12 +78,12 @@ export default function SignUp({navigation}) {
     
     >
       <Layout style={{flex: 1, backgroundColor: '#F7F9FC'}}>
-        <TopLefthand
+        <LeftTopHand
           width={widthToDp(50)}
           height={heightToDp(25)}
           style={styles.TopLeftHand}
         />
-        <TopRightHand
+        <RightTopHand
           width={widthToDp(25)}
           height={heightToDp(25)}
           style={styles.TopRightHand}
@@ -98,7 +99,7 @@ export default function SignUp({navigation}) {
           style={styles.burger}
         />
         <View style={{alignItems: 'center'}}>
-          <Etosha height={100} style={{marginVertical: 20}} />
+          <Etosha width={widthToDp(40)} height={heightToDp(20)}  />
         </View>
 
         <Layout

@@ -11,10 +11,11 @@ import {Text, Button, Avatar, Layout, List} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Bell from 'react-native-vector-icons/EvilIcons';
 import Dots from 'react-native-vector-icons/MaterialCommunityIcons';
-import Menue from '../../assesst/Icon/menue.svg';
+import Menue from '../../assets/SVg/MenuIcon';
 
 import {COLORS, FONTS, fontsFamily, icons, SIZES} from '../../constants';
 import {RiderData} from '../../model/Data';
+import ClockIcon from '../../assets/SVg/Clock';
 
 export default function Home({navigation}) {
   const [search, setSearch] = React.useState('');
@@ -26,7 +27,7 @@ export default function Home({navigation}) {
         // onPress={() => navigation.navigate('ResturentProfile')}
       >
         <Image
-          source={require('./../../assesst/dish.jpg')}
+          source={require('./../../assets/DummyImages/dish.jpg')}
           style={{height: 130, width: SIZES.width - 40, borderRadius: 30}}
         />
         <Button
@@ -34,7 +35,9 @@ export default function Home({navigation}) {
           style={styles.ASAPbtn}
           accessoryLeft={() => (
             <Layout style={styles.LeftAccessory}>
-              <Image source={icons.Clock} style={styles.ButtonIcon} />
+              <View style={styles.ButtonIcon}>
+              <ClockIcon />
+              </View>
             </Layout>
           )}>
           <Text style={{color: COLORS.white, ...FONTS.body4}}>
@@ -96,7 +99,7 @@ export default function Home({navigation}) {
                 onPress={() => {
                   alert('ok');
                 }}
-                source={require('../../assesst/profilePic.png')}
+                source={require('../../assets/DummyImages/profilePic.png')}
                 style={styles.ProfileAvatar}
               />
             </TouchableOpacity>

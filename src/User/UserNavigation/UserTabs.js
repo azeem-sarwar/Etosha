@@ -1,9 +1,9 @@
 import React from 'react';
 import {
     View,
-    Image,
+  
     TouchableOpacity,
-    Text
+  
 } from 'react-native';
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 import Svg, { Path } from 'react-native-svg';
@@ -14,8 +14,8 @@ import Icocion from 'react-native-vector-icons/Ionicons'
 import Octicons from 'react-native-vector-icons/Octicons'
 import Icon from 'react-native-vector-icons/Feather'
 import Foundation from 'react-native-vector-icons/Foundation'
-import StoreIcon from './../../../assesst/Icon/Store.svg'
-import DrawerNavigation from './DrawerNavigation';
+import StoreIcon from './../../../assets/SVg/StoreIcon'
+
 import StackNavigationUser, { ProfileStack } from './HomeStackNavgation';
 import { COLORS } from '../../../constants';
 

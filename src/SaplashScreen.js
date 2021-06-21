@@ -8,19 +8,27 @@ import {
   Layout,
   Text,
 } from '@ui-kitten/components';
-import FoofDeliverIcon from '../assesst/Svg/CenterSvgIcon.svg'
-import BottomLeftHand from './../assesst/Svg/bottomLeftHand.svg'
-import BottomRightHand from './../assesst/Svg/bottomRightHand.svg'
-import TopRightHand from './../assesst/Svg/rightTopHand.svg'
-import TopLefthand from './../assesst/Svg/leftTopHand.svg'
-import Etosha from './../assesst/Svg/etosha.svg'
-import Burger from './../assesst/Svg/burger.svg'
-import JuiceGlass from './../assesst/Svg/juiceGlass.svg'
-import Pizza from './../assesst/Svg/Pizza.svg'
+import FoofDeliverIcon from '../assets/SVg/CenterSvgIcon.svg'
 
 
 
-import { BlurView } from "@react-native-community/blur";
+
+
+
+
+import LeftTopHand from '../assets/SVg/LeftTopHand'
+import RightTopHand from '../assets/SVg/RightTopHand'
+import Burger from '../assets/SVg/Burger'
+import Pizza from '../assets/SVg/Pizza'
+import EtoshaIcon from '../assets/SVg/EtoshaIcon'
+import BottomRightHand from '../assets/SVg/BottomRightHand'
+import BottomLeftHand from '../assets/SVg/BottomLeftHand'
+import JuiceGlass from '../assets/SVg/JuiceIcon'
+
+
+
+
+
 import { heightToDp, widthToDp } from '../Utils/Responsive';
 
 const height = Dimensions.get('screen').height;
@@ -35,16 +43,19 @@ export default function SaplashScreen() {
         <Layout style={styles.container}>
          
         <Layout style={{flex:1}} >
-        <TopLefthand width={widthToDp(50)} height={heightToDp(25)} style={styles.TopLeftHand} />
-        <TopRightHand width={widthToDp(25)} height={heightToDp(25)} style={styles.TopRightHand} />
+        <LeftTopHand width={widthToDp(50)} height={heightToDp(25)} style={styles.TopLeftHand} />
+        <RightTopHand width={widthToDp(25)} height={heightToDp(25)} style={styles.TopRightHand} />
+
         <Burger width={widthToDp(50)} height={heightToDp(30)} style={styles.pizza}/>
         <Pizza width={widthToDp(50)} height={heightToDp(30)} style={styles.burger} />
         <FoofDeliverIcon width={widthToDp(50)} height={heightToDp(50)} style={styles.FoodxaIcon} />
-        <Etosha width={widthToDp(50)} height={heightToDp(50)} style={styles.AppIcon}  />
+
+        <EtoshaIcon width={widthToDp(50)} height={heightToDp(50)} style={styles.AppIcon}  />
+
         <BottomRightHand width={widthToDp(70)} height={heightToDp(20)} style={styles.bottomRighthandIcon}/>
         <BottomLeftHand width={widthToDp(70)} height={heightToDp(20)} style={styles.bottomLefthandIcon} />
-        <JuiceGlass style={styles.Juices} />
-        <Burger style={styles.BurgerBottom} />
+        <JuiceGlass  style={styles.Juices} />
+        <Burger width={widthToDp(50)} height={heightToDp(30)} style={styles.BurgerBottom} />
        
         </Layout>
        
@@ -89,13 +100,14 @@ const styles = StyleSheet.create({
       TopLeftHand:{
         position:'absolute',
         left:-80,
-        top:-65
+        top:-65,
+        
       },FoodxaIcon:{opacity:0.15,position:'absolute',alignSelf:"center",top:heightToDp(30)},
       AppIcon:{position:'absolute',alignSelf:"center",top:heightToDp(18)},
       pizza:{position:"absolute",top:-80,right:-50,elevation:-1,opacity:0.2, },
-      burger:{position:"absolute",top:-80,left:-50,elevation:-1,opacity:0.2, },
+      burger:{position:"absolute",top:-80,left:-50,elevation:-1,opacity:0.05, },
       Juices:{position:"absolute",bottom:-20,left:-20,elevation:-1,opacity:0.2, },
-      BurgerBottom:{position:"absolute",bottom:-20,right:-30,elevation:-1,opacity:0.2, transform: [{ rotate: "80deg" }]}
+      BurgerBottom:{position:"absolute",bottom:-20,right:-30,elevation:-1,opacity:0.05, transform: [{ rotate: "80deg" }]}
   });
   // shadowColor: "#orange",
   //   shadowOffset: {

@@ -17,13 +17,12 @@ import {
   Avatar,
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
+
+import Person from '../../assets/SVg/Person';
 import { widthToDp } from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
+import EmailSvg from '../../assets/SVg/EmailIcon';
+import { COLORS } from '../../constants';
 
 
 
@@ -68,7 +67,7 @@ export default function EditRiderProfile({navigation}) {
             <TouchableOpacity
               style={styles.MenueBtn}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+              <Icon name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
             <Text style={styles.ScreenTitle}>Profile</Text>
           </View>
@@ -80,7 +79,7 @@ export default function EditRiderProfile({navigation}) {
          
           >
           <Avatar
-            source={require('./../../assesst/48061.png')}
+            source={require('./../../assets/DummyImages/profilePic.png')}
             style={styles.ProfileImage}
           />
           <Icon name="camera-outline" size={20} color="#000" style={styles.addImageIcon} />
@@ -166,7 +165,7 @@ export default function EditRiderProfile({navigation}) {
             <View
               style={styles.InputSubContainer}
               >
-              <Person onPress={setAddressRef} />
+             <Icon name="map-outline" size={25} color={COLORS.black} />
             </View>
             <View onPress={setAddressRef} style={{marginLeft: 10}}>
               <Text  appearance="hint">

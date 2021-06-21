@@ -10,6 +10,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ClockIcon from "../../assets/SVg/Clock";
 
 import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY_andriod, images, fontsFamily } from "../../constants"
 import PinMarker from "../Component/Pin";
@@ -380,10 +381,10 @@ const [DeliverStatus, setDeliverStatus] = React.useState("NotStarted")
         </View>
             </View>
             <View style={{flexDirection:'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 30, width: 30,marginRight:5}}
-            />
+            <View style={{height: 30, width: 30,marginRight:5}}>
+            <ClockIcon height={30} width={30} /> 
+
+            </View>
             <View>
             <Text style={{...FONTS.body4}} >20-25 min </Text>
             <Text style={{...fontsFamily.Light,fontSize:10}} >Delivery time</Text>

@@ -13,14 +13,12 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Star from 'react-native-vector-icons/AntDesign';
+
 import Comment from 'react-native-vector-icons/MaterialCommunityIcons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
+
+
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import {Directions, } from 'react-native-gesture-handler';
+
 import { COLORS } from '../../constants';
 
 const width = Dimensions.get('screen').width;
@@ -36,7 +34,7 @@ const useFocus = () => {
 export default function Review({navigation}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
-    require('../../assesst/2star.png'),
+    require('../../assets/DummyImages/2star.png'),
   );
   const [Rating, setRating] = React.useState(1);
 
@@ -46,10 +44,10 @@ export default function Review({navigation}) {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
-      keyboardVerticalOffset={Header.HEIGHT+20}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      // keyboardVerticalOffset={Header.HEIGHT+20}
       style={styles.conTainer}>
-      <ScrollView style={[styles.conTainer,]}>
+      <ScrollView >
         <StatusBar />
         <View>
           <View style={styles.header}>
@@ -57,7 +55,7 @@ export default function Review({navigation}) {
               <TouchableOpacity
                 style={styles.MenueBtn}
                 onPress={() => navigation.goBack()}>
-                <Arrow />
+                <Icon name="chevron-back" size={25} color={COLORS.black} />
               </TouchableOpacity>
               <Text style={styles.ScreenTitle}>Food Review</Text>
             </View>
@@ -87,7 +85,7 @@ export default function Review({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(1);
-                SetImagePath(require('../../assesst/2star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"
@@ -98,7 +96,7 @@ export default function Review({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(2);
-                SetImagePath(require('../../assesst/2star.png'));
+                SetImagePath(require('../../assets/DummyImages/2star.png'));
               }}>
               <Icon
                 name="star"
@@ -109,7 +107,7 @@ export default function Review({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(3);
-                SetImagePath(require('../../assesst/4star.png'));
+                SetImagePath(require('../../assets/DummyImages/4star.png'));
               }}>
               <Icon
                 name="star"
@@ -120,7 +118,7 @@ export default function Review({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(4);
-                SetImagePath(require('../../assesst/4star.png'));
+                SetImagePath(require('../../assets/DummyImages/4star.png'));
               }}>
               <Icon
                 name="star"
@@ -131,7 +129,7 @@ export default function Review({navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setRating(5);
-                SetImagePath(require('../../assesst/5star.png'));
+                SetImagePath(require('../../assets/DummyImages/5star.png'));
               }}>
               <Icon
                 name="star"
@@ -176,6 +174,7 @@ export default function Review({navigation}) {
         </Button>
       </View>
         </View>
+        <View style={{height:100}} />
       </ScrollView>
     </KeyboardAvoidingView>
   );

@@ -7,8 +7,8 @@ import {
     StyleSheet
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import MapViewDirections from "react-native-maps-directions";
-import Arrow from '../../assesst/Icon/arrowBack.svg'
+
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { COLORS, FONTS, icons, SIZES, GOOGLE_API_KEY_andriod, images,List } from "../../constants"
@@ -191,7 +191,7 @@ const NearByFoodMap = ({ route, navigation }) => {
         <TouchableOpacity
         style={styles.goBackBtn}
         onPress={() => navigation.goBack()}>
-        <Arrow /> 
+       <Icon name="chevron-back" size={25} color={COLORS.black} />
       </TouchableOpacity>
       <Text style={{...FONTS.body2,marginLeft:10 ,top:20,marginLeft:20}}>Nearby Resturant</Text>
         </View>

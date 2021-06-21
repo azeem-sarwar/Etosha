@@ -17,13 +17,15 @@ import {
   Avatar,
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-import Arrow from '../../assesst/Icon/arrowBack.svg';
+import Person from '../../assets/SVg/Person'
+import EmailSvg from '../../assets/SVg/EmailIcon'
 import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
+
+
 import { widthToDp } from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
+
+import { COLORS } from '../../constants';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -68,7 +70,8 @@ export default function EditProfile({navigation}) {
             <TouchableOpacity
               style={styles.MenueBtn}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+              
+               <Icon name="chevron-back" size={25} color={COLORS.black} />
             </TouchableOpacity>
             <Text style={styles.ScreenTitle}>Profile</Text>
           </View>
@@ -166,7 +169,7 @@ export default function EditProfile({navigation}) {
             <View
               style={styles.InputSubContainer}
               >
-              <Person onPress={setAddressRef} />
+              <Icon name="map-outline" color={COLORS.black} size={25} />
             </View>
             <View onPress={setAddressRef} style={{marginLeft: 10}}>
               <Text  appearance="hint">

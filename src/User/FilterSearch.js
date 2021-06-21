@@ -10,9 +10,12 @@ import {
 } from 'react-native';
 import {Text, Button, Layout,List} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
 
-import Cart from './../../assesst/Icon/Cart.svg';
+
+import Cart from './../../assets/SVg/CartIcon';
+
+
+import { COLORS } from '../../constants';
 const width = Dimensions.get('screen').width;
 
 const PriceTag = [
@@ -180,7 +183,8 @@ export default function FilterSearch({navigation}) {
             <TouchableOpacity
               style={styles.headerMenueBtn}
               onPress={() => navigation.goBack()}>
-              <Arrow />
+         <Icon name="chevron-back" size={25} color={COLORS.black} />
+
             </TouchableOpacity>
             <Text style={styles.headerText}> Search </Text>
           </View>

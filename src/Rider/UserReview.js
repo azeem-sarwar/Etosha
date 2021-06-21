@@ -13,14 +13,11 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Star from 'react-native-vector-icons/AntDesign';
-import Comment from 'react-native-vector-icons/MaterialCommunityIcons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import {Header} from '@react-navigation/stack';
-import Person from '../../assesst/Icon/person.svg';
+
+
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import {Directions, } from 'react-native-gesture-handler';
+import { COLORS } from '../../constants';
+
 
 
 
@@ -28,7 +25,7 @@ import {Directions, } from 'react-native-gesture-handler';
 export default function Review({navigation,route}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
-    require('../../assesst/2star.png'),
+    require('../../assets/DummyImages/2star.png'),
   );
   const [Rating, setRating] = React.useState(1);
 
@@ -39,30 +36,30 @@ React.useEffect(() => {
   {
     case 1:
       {setRating(1);
-      SetImagePath(require('../../assesst/2star.png'));}
+      SetImagePath(require('../../assets/DummyImages/2star.png'));}
       break;
     case 2:
       {
         setRating(2);
-        SetImagePath(require('../../assesst/2star.png'));
+        SetImagePath(require('../../assets/DummyImages/2star.png'));
       }
       break;
     case 3:
       {
         setRating(3);
-        SetImagePath(require('../../assesst/4star.png'));
+        SetImagePath(require('../../assets/DummyImages/4star.png'));
       }
       break;
     case 4:
       {
         setRating(4);
-        SetImagePath(require('../../assesst/4star.png'));
+        SetImagePath(require('../../assets/DummyImages/4star.png'));
       }
       break;
     case 5:
       {
         setRating(5);
-        SetImagePath(require('../../assesst/5star.png'));
+        SetImagePath(require('../../assets/DummyImages/5star.png'));
       }
       break;
     default:
@@ -86,7 +83,7 @@ React.useEffect(() => {
               <TouchableOpacity
                 style={styles.MenueBtn}
                 onPress={() => navigation.goBack()}>
-                <Arrow />
+                <Icon name="chevron-back" size={25} color={COLORS.black} />
               </TouchableOpacity>
               <Text style={styles.ScreenTitle}>My Reviews</Text>
             </View>

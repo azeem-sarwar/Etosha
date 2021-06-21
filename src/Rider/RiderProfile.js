@@ -40,7 +40,7 @@ export default function RiderProfile({navigation}) {
         <TouchableOpacity
           style={styles.MenueBtn}
           onPress={() => navigation.goBack()}>
-          <Arrow />
+          <Icon name="chevron-back" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={styles.ScreenTitle}>
           Profile
@@ -51,7 +51,7 @@ export default function RiderProfile({navigation}) {
 
     <View style={{margin: 20, alignItems: 'center'}}>
       <Avatar
-        source={require('./../../assesst/48061.png')}
+        source={require('./../../assets/DummyImages/profilePic.png')}
         style={styles.ProfileImage}
       />
       <Text

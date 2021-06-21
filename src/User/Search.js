@@ -16,80 +16,15 @@ import {
   Card
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-import SearchWhite from '../../assesst/Icon/search.svg';
 
-import Cart from './../../assesst/Icon/Cart.svg'
-import { COLORS, fontsFamily } from '../../constants';
-const width = Dimensions.get('screen').width;
+import Cart from './../../assets/SVg/CartIcon'
+import { COLORS, fontsFamily, SIZES } from '../../constants';
 
 
 
-const NearByReturent = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '4',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-  },
-  {
-    id: '5',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '6',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-];
+import {NearByReturent} from '../../model/ResturantDishData'
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
 
 
 
@@ -105,7 +40,7 @@ const [index,setIndex] =React.useState(1);
       <TouchableOpacity
       style={{
         paddingBottom:10, 
-        width: width/2.25,
+        width: SIZES.width/2.25,
         marginTop:10,
         marginHorizontal:10,
         borderRadius: 30,
@@ -115,8 +50,8 @@ const [index,setIndex] =React.useState(1);
       >
       
         <Image
-          source={require('./../../assesst/dish.jpg')}
-          style={{height: 150, width: width/2.25, borderRadius: 30}}
+          source={require('./../../assets/DummyImages/dish.jpg')}
+          style={{height: 150, width: SIZES.width/2.25, borderRadius: 30}}
         />
         <View
           style={{
@@ -167,17 +102,15 @@ const [index,setIndex] =React.useState(1);
         </Text>
         
         <View style={{flexDirection: 'row'}}>
-          <Image
-            source={require('../../assesst/Icon/Star.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-          />
+         <View style={{height: 20, width: 20, marginLeft: 10}}>
+         <StarIcon />
+         </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             4.6
           </Text>
-          <Image
-            source={require('../../assesst/Icon/Clock.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-          />
+          <View style={{height: 20, width: 20, marginLeft: 10}}>
+            <ClockIcon />
+          </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             30 Min
           </Text>
@@ -246,7 +179,7 @@ const [index,setIndex] =React.useState(1);
           onPress={()=>navigation.goBack()}
           
           >
-          <Arrow />
+          <Icon name="chevron-back" size={25} color={COLORS.black} />
         </TouchableOpacity>
         <Text style={{marginLeft: 5,fontFamily:'Poppins-Light'}}>
           {' '}
@@ -305,7 +238,7 @@ const [index,setIndex] =React.useState(1);
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <SearchWhite />
+          <Icon name="search" size={25} color={COLORS.white} />
         </View>
       </View>
 

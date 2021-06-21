@@ -10,29 +10,26 @@ import {
   Text,
   Toggle,
 } from '@ui-kitten/components';
-import FoofDeliverIcon from '../../assesst/Svg/CenterSvgIcon.svg';
-import BottomLeftHand from '../../assesst/Svg/bottomLeftHand.svg';
-import BottomRightHand from '../../assesst/Svg/bottomRightHand.svg';
-import TopRightHand from '../../assesst/Svg/rightTopHand.svg';
-import TopLefthand from '../../assesst/Svg/leftTopHand.svg';
-import Etosha from '../../assesst/Svg/etosha.svg';
-import Burger from '../../assesst/Svg/burger.svg';
-import JuiceGlass from '../../assesst/Svg/juiceGlass.svg';
-import Pizza from '../../assesst/Svg/Pizza.svg';
-import EmailSvg from '../../assesst/Icon/email.svg';
-import DropDownIcon from '../../assesst/Icon/DropDownIcon.svg';
-import PhoneBook from '../../assesst/Icon/phoneBook.svg';
+import LeftTopHand from '../../assets/SVg/LeftTopHand'
+import RightTopHand from '../../assets/SVg/RightTopHand'
+import Burger from '../../assets/SVg/Burger'
+
+import Pizza from '../../assets/SVg/Pizza'
+import BottomRightHand from '../../assets/SVg/BottomRightHand'
+import BottomLeftHand from '../../assets/SVg/BottomLeftHand'
+import JuiceGlass from '../../assets/SVg/JuiceIcon'
+import Etosha from '../../assets/SVg/EtoshaIcon'
+import PhoneBook from '../../assets/SVg/PhoneBook';
 
 
-import {BlurView} from '@react-native-community/blur';
+
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
-import {TextInput} from 'react-native-gesture-handler';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {TextInput} from 'react-native';
+import IconMAt from 'react-native-vector-icons/MaterialIcons';
 
-import { fontsFamily } from '../../constants';
+import { COLORS, fontsFamily } from '../../constants';
 
-const HeartIcon = props => <Icon {...props} name="heart" />;
-const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
+
 
 const useToggleState = (initialState = false) => {
   const [checked, setChecked] = React.useState(initialState);
@@ -71,12 +68,12 @@ export default function Forget({navigation}) {
     
     >
       <Layout style={{flex: 1, backgroundColor: '#F7F9FC'}}>
-        <TopLefthand
+        <LeftTopHand
           width={widthToDp(50)}
           height={heightToDp(25)}
           style={styles.TopLeftHand}
         />
-        <TopRightHand
+        <RightTopHand
           width={widthToDp(25)}
           height={heightToDp(25)}
           style={styles.TopRightHand}
@@ -92,7 +89,7 @@ export default function Forget({navigation}) {
           style={styles.burger}
         />
         <View style={{alignItems: 'center'}}>
-          <Etosha height={100} style={{marginVertical: 20}} />
+          <Etosha width={widthToDp(40)} height={heightToDp(20)}  />
         </View>
 
         <Layout
@@ -141,7 +138,7 @@ export default function Forget({navigation}) {
               <Image
               style={{height:20,width:20,borderRadius:50}}
                source={{uri:'https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg'}} />
-              <DropDownIcon  />
+              <IconMAt name="arrow-drop-down" size={25} color={COLORS.black}  />
               </TouchableOpacity>
             
               <TextInput

@@ -16,45 +16,15 @@ import {
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LeftArrow from 'react-native-vector-icons/Entypo';
-import Cart from './../../assesst/Icon/Cart.svg'
+
 import { COLORS, FONTS, SIZES } from '../../constants';
+import CartIcon from '../../assets/SVg/CartIcon';
 
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
 
+import {NearByReturent} from '../../model/ResturantDishData'
 
-
-const NearByReturent = [
-  {
-    id: '1',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/dish.jpg'),
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-  },
-  {
-    id: '2',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-  {
-    id: '3',
-    FoodName: 'Shrimps and Arugula',
-    img: require('./../../assesst/popularFood.png'),
-
-    price: 200.0,
-    Rating: 4.9,
-    Time: '20 min',
-    tags:[{id:"1",tag:"Foods"},{id:"2",tag:"Buger"},{id:"3",tag:"Pizza"}]
-
-  },
-];
 
 
 
@@ -124,18 +94,16 @@ export default function NeraByResturent({navigation}) {
         </Text>
         
         <View style={{flexDirection: 'row'}}>
-          <Image
-            source={require('../../assesst/Icon/Star.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-            
-          />
+          
+          <View  style={{marginLeft: 10}}>
+            <StarIcon/>
+          </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             4.6
           </Text>
-          <Image
-            source={require('../../assesst/Icon/Clock.png')}
-            style={{height: 20, width: 20, marginLeft: 10}}
-          />
+          <View  style={{marginLeft: 10}}>
+          <ClockIcon />
+          </View>
           <Text appearance="hint" style={{marginLeft: 5}}>
             30 Min
           </Text>
@@ -201,7 +169,7 @@ export default function NeraByResturent({navigation}) {
       onPress={()=>navigation.navigate("Cart")}
        style={{marginLeft:10}}>
 
-      <Cart />
+      <CartIcon />
       <Text style={{fontSize:10,backgroundColor:COLORS.primary,color:COLORS.white,borderRadius:50,width:15,height:15,textAlign:'center',position:'absolute',right:-5,top:-5}}>5</Text>
       </TouchableOpacity>
       

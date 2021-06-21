@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {Text, Button, Layout, Avatar, Input} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
+
 import {heightToDp, widthToDp} from '../../Utils/Responsive';
 import { COLORS } from '../../constants';
 
@@ -24,7 +24,7 @@ import { COLORS } from '../../constants';
 export default function UserReview({navigation,route}) {
   const [commentMessage, setComment] = React.useState('');
   const [ImagePath, SetImagePath] = React.useState(
-    require('../../assesst/2star.png'),
+    require('../../assets/DummyImages/2star.png'),
   );
   const [Rating, setRating] = React.useState(1);
 
@@ -35,30 +35,30 @@ React.useEffect(() => {
   {
     case 1:
       {setRating(1);
-      SetImagePath(require('../../assesst/2star.png'));}
+      SetImagePath(require('../../assets/DummyImages/2star.png'));}
       break;
     case 2:
       {
         setRating(2);
-        SetImagePath(require('../../assesst/2star.png'));
+        SetImagePath(require('../../assets/DummyImages/2star.png'));
       }
       break;
     case 3:
       {
         setRating(3);
-        SetImagePath(require('../../assesst/4star.png'));
+        SetImagePath(require('../../assets/DummyImages/4star.png'));
       }
       break;
     case 4:
       {
         setRating(4);
-        SetImagePath(require('../../assesst/4star.png'));
+        SetImagePath(require('../../assets/DummyImages/4star.png'));
       }
       break;
     case 5:
       {
         setRating(5);
-        SetImagePath(require('../../assesst/5star.png'));
+        SetImagePath(require('../../assets/DummyImages/5star.png'));
       }
       break;
     default:

@@ -10,7 +10,10 @@ import {
 } from 'react-native';
 import {Text, Button, Layout} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Cart from './../../assesst/Icon/Cart.svg';
+import Cart from './../../assets/SVg/CartIcon';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
+
 import {COLORS, fontsFamily, SIZES} from '../../constants';
 import { NearByReturent } from '../../model/Data';
 
@@ -43,17 +46,16 @@ export default function FoodCategory({navigation, route}) {
           </Text>
 
           <View style={styles.reatingSection}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={styles.RatingsectionImg}
-            />
+          <View style={styles.RatingsectionImg}>
+            <StarIcon />
+          </View>
+            
             <Text appearance="hint" style={styles.ratingSectionTxt}>
               {item.Rating}
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={styles.RatingsectionImg}
-            />
+            <View style={styles.RatingsectionImg}>
+              <ClockIcon />
+            </View>
             <Text appearance="hint" style={styles.ratingSectionTxt}>
               {item.Time}
             </Text>

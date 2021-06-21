@@ -4,9 +4,8 @@ import {
   TouchableOpacity,
   Image,
   StatusBar,
-  Dimensions,
-  StyleSheet,
   ScrollView,
+  FlatList
 } from 'react-native';
 import {
   Text,
@@ -14,15 +13,12 @@ import {
   Layout,
   List,
   StyleService,
-  Avatar,
 } from '@ui-kitten/components';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Arrow from '../../assesst/Icon/arrowBack.svg';
-import Search from '../../assesst/Icon/SearchBlack.svg';
-
-import {FlatList} from 'react-native-gesture-handler';
-import {heightToDp, widthToDp} from '../../Utils/Responsive';
+import Icon from 'react-native-vector-icons/Ionicons';;
 import { COLORS, SIZES } from '../../constants';
+import StarIcon from '../../assets/SVg/Star';
+import ClockIcon from '../../assets/SVg/Clock';
+import CycleIcon from '../../assets/SVg/CycleIcon';
 
 
 
@@ -48,7 +44,7 @@ const CategoryData = [
     {
       id: '1',
       FoodName: 'Shrimps and Arugula',
-      img: require('./../../assesst/dish.jpg'),
+      img: require('./../../assets/DummyImages/dish.jpg'),
       price: 200.0,
       Rating: 4.9,
       Time: '20 min',
@@ -56,7 +52,7 @@ const CategoryData = [
     {
       id: '2',
       FoodName: 'Shrimps and Arugula',
-      img: require('./../../assesst/popularFood.png'),
+      img: require('./../../assets/DummyImages/popularFood.png'),
   
       price: 200.0,
       Rating: 4.9,
@@ -158,17 +154,16 @@ export default function ResturentProfile({navigation}) {
           </Text>
           
           <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+            <StarIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               {item.Rating}
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+               <ClockIcon />
+            </View>
+           
             <Text appearance="hint" style={{marginLeft: 5}}>
               {item.Time}
             </Text>
@@ -185,14 +180,14 @@ export default function ResturentProfile({navigation}) {
     <ScrollView styles={styles.container}>
       <StatusBar />
       <Image
-        source={require('../../assesst/dish.jpg')}
+        source={require('../../assets/DummyImages/dish.jpg')}
         style={{height: 200, width: '100%'}}
       />
 
       <TouchableOpacity
         style={styles.goBackBtn}
         onPress={() => navigation.goBack()}>
-        <Arrow />
+        <Icon name="chevron-back" size={25} color={COLORS.black} />
       </TouchableOpacity>
 
 <TouchableOpacity onPress={()=>navigation.navigate("FoodMap")}>
@@ -207,7 +202,7 @@ export default function ResturentProfile({navigation}) {
         }}>
         <View>
           <Image
-            source={require('../../assesst/Burgerking.png')}
+            source={require('../../assets/DummyImages/Burgerking.png')}
             style={{
               height: 60,
               width: 60,
@@ -244,24 +239,23 @@ export default function ResturentProfile({navigation}) {
 
         <View style={{marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between',marginVertical:5}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 1}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+              <StarIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               4.6
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+            <ClockIcon />
+            </View>
+
             <Text appearance="hint" style={{marginLeft: 5}}>
               30 Min
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Cycle.png')}
-              style={{height: 20, width: 30, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 30, marginLeft: 10}}>
+               <CycleIcon />
+            </View>
+            
             <Text appearance="hint" style={{marginLeft: 5}}>
               Free Delivery
             </Text>
@@ -351,7 +345,7 @@ export default function ResturentProfile({navigation}) {
         }}>
         
           <Image
-            source={require('./../../assesst/dish.jpg')}
+            source={require('./../../assets/DummyImages/dish.jpg')}
             style={{height: 200, width: SIZES.width - 20, borderRadius: 30}}
           />
           <View
@@ -392,21 +386,21 @@ export default function ResturentProfile({navigation}) {
               marginLeft: 10,
               fontFamily: 'Poppins-Regular',
               fontSize: 20,
-            }}>
+            }}
+            appearance="hint"
+            >
             $ 45.00
           </Text>
           <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('../../assesst/Icon/Star.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+              <StarIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               4.6
             </Text>
-            <Image
-              source={require('../../assesst/Icon/Clock.png')}
-              style={{height: 20, width: 20, marginLeft: 10}}
-            />
+            <View style={{height: 20, width: 20, marginLeft: 10}}>
+              <ClockIcon />
+            </View>
             <Text appearance="hint" style={{marginLeft: 5}}>
               30 Min
             </Text>

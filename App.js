@@ -24,10 +24,7 @@ import RootStackNavigation from './src/Navigation/RootStackNavigation';
 
 import Test from './src/testScree';
 import { default as theme } from './Theme/custom-theme.json';
-/**
- * Use any valid `name` property from eva icons (e.g `github`, or `heart-outline`)
- * https://akveo.github.io/eva-icons
- */
+
 
 
 export default () => { 

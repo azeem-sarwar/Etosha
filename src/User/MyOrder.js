@@ -12,68 +12,25 @@ import {
   Button,
   Layout,
   List,
-  Input,
-  Card,
+
   Avatar,
 } from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Arrow from '../../assesst/Icon/arrowBack.svg';
+
+
+import { COLORS } from '../../constants';
 
 const width = Dimensions.get('screen').width;
 
-const data = [
-  {
-    id: '#2145',
-    FoodName: 'Whipping cream',
-    img: require('./../../assesst/food/icecream.jpg'),
-    ResturentLogo: require('./../../assesst/Burgerking.png'),
-    price: 3.99,
-    totlatItems: 5,
-    Time: '20 min',
-    status: 'done',
-  },
-
-  {
-    id: '#2149',
-    FoodName: 'Stir-Fried Spicy',
-    img: require('./../../assesst/food/dishfood.jpg'),
-    ResturentLogo: require('./../../assesst/Burgerking.png'),
-    price: 9.99,
-    totlatItems: 2,
-    Time: '15 min',
-    status: 'done',
-  },
-  {
-    id: '#2146',
-    FoodName: 'Burger',
-    img: require('./../../assesst/food/burgerCat.jpg'),
-    ResturentLogo: require('./../../assesst/Burgerking.png'),
-    price: 200.0,
-    totlatItems: 5,
-    Time: '20 min',
-    status: 'pending',
-  },
-  {
-    id: '#2144',
-    FoodName: 'Rice',
-    img: require('./../../assesst/food/rice.jpg'),
-    ResturentLogo: require('./../../assesst/Burgerking.png'),
-    price: 200.0,
-    totlatItems: 5,
-    Time: '20 min',
-    status: 'pending',
-  },
-];
-
+import {MyOrderDatadata} from '../../model/Data'
 export default function MyOrder({navigation}) {
   const [index, setIndex] = React.useState(1);
   const [RunningOrder, SetRuningOrder] = React.useState(
-    data.filter(item => item.status == 'pending'),
+    MyOrderDatadata.filter(item => item.status == 'pending'),
   );
   const [PastOrder, setPastOrder] = React.useState(
-    data.filter(item => item.status == 'done'),
+    MyOrderDatadata.filter(item => item.status == 'done'),
   );
   const RanderFoods = ({item}) => {
     
@@ -131,7 +88,7 @@ export default function MyOrder({navigation}) {
           <TouchableOpacity
             style={styles.MenueBtn}
             onPress={() => navigation.goBack()}>
-            <Arrow />
+            <Icon name="chevron-back" size={25} color={COLORS.black} />
           </TouchableOpacity>
           <Text style={styles.ScreenTitle}>My Order</Text>
         </View>
